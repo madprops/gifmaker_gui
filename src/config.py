@@ -2,8 +2,8 @@
 import customtkinter as tk
 
 app = None
-width = 800
-height = 400
+width = 820
+height = 600
 
 padx = 8
 pady = 8
@@ -48,3 +48,13 @@ class G:
     outline = None
     output_path = None
     format_name = None
+    fill_words = None
+    fill_gen = None
+    deep_fry = None
+    vertical = None
+    horizontal = None
+    descender = None
+    outline_top = None
+    outline_bottom = None
+    outline_left = None
+    outline_right = None

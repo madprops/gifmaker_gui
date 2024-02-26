@@ -140,8 +140,8 @@ def frame_frames():
     w.make_label(frame, 0, col, "Filter")
     col += 1
 
-    filters = ["hue1", "hue2", "hue3", "hue4", "hue5", "hue6", "hue7", "hue8", "anyhue", "anyhue2", \
-        "gray", "grey", "blur", "invert", "random", "random2", "none"]
+    filters = ["hue1", "hue2", "hue3", "hue4", "hue5", "hue6", "hue7", "hue8", "anyhue", "anyhue2",
+               "gray", "grey", "blur", "invert", "random", "random2", "none"]
     G.filter_name = w.make_select(frame, 0, col, filters)
     G.filter_name.set("none")
     col += 1
@@ -164,4 +164,83 @@ def frame_output():
     formats = ["gif", "webm", "mp4", "jpg", "png"]
     G.format_name = w.make_select(frame, 0, col, formats)
     G.format_name.set("gif")
+    col += 1
+
+
+def frame_checkboxes_1():
+    frame = w.make_frame()
+    col = 0
+
+    w.make_label(frame, 0, col, "Fill Words")
+    col += 1
+
+    G.fill_words = w.make_checkbox(frame, 0, col)
+    col += 1
+
+    w.make_label(frame, 0, col, "Fill Gen")
+    col += 1
+
+    G.fill_gen = w.make_checkbox(frame, 0, col)
+    col += 1
+
+    w.make_label(frame, 0, col, "Descenders")
+    col += 1
+
+    G.descender = w.make_checkbox(frame, 0, col)
+    col += 1
+
+
+def frame_checkboxes_2():
+    frame = w.make_frame()
+    col = 0
+
+    w.make_label(frame, 0, col, "Deep Fry")
+    col += 1
+
+    G.deep_fry = w.make_checkbox(frame, 0, col)
+    col += 1
+
+    w.make_label(frame, 0, col, "Vertical")
+    col += 1
+
+    G.vertical = w.make_checkbox(frame, 0, col)
+    col += 1
+
+    w.make_label(frame, 0, col, "Horizontal")
+    col += 1
+
+    G.horizontal = w.make_checkbox(frame, 0, col)
+    col += 1
+
+
+def frame_outline():
+    frame = w.make_frame()
+    col = 0
+
+    w.make_label(frame, 0, col, "Outline Top")
+    col += 1
+
+    G.outline_top = w.make_checkbox(frame, 0, col)
+    G.outline_top.select()
+    col += 1
+
+    w.make_label(frame, 0, col, "Outline Bottom")
+    col += 1
+
+    G.outline_bottom = w.make_checkbox(frame, 0, col)
+    G.outline_bottom.select()
+    col += 1
+
+    w.make_label(frame, 0, col, "Outline Left")
+    col += 1
+
+    G.outline_left = w.make_checkbox(frame, 0, col)
+    G.outline_left.select()
+    col += 1
+
+    w.make_label(frame, 0, col, "Outline Right")
+    col += 1
+
+    G.outline_right = w.make_checkbox(frame, 0, col)
+    G.outline_right.select()
     col += 1

@@ -48,3 +48,8 @@ def make_select(frame, row, col, values, sticky="w"):
     select.set(values[0])
     select.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return select
+
+def make_checkbox(frame, row, col, sticky="w"):
+    checkbox = tk.CTkCheckBox(frame, font=config.font, text="", onvalue=True, offvalue=False, width=1)
+    checkbox.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
+    return checkbox
