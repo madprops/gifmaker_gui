@@ -16,10 +16,14 @@ font = None
 frame_number = 0
 
 
-def prepare(app_o):
+def prepare():
     global app, font
 
-    app = app_o
+    tk.set_appearance_mode("dark")
+    tk.set_default_color_theme("green")
+    app = tk.CTk()
+    app.geometry(f"{width}x{height}")
+    app.grid_columnconfigure(0, weight=1)
     font = tk.CTkFont(family=font_family, size=font_size)
 
 
