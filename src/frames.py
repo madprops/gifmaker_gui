@@ -140,7 +140,10 @@ def frame_frames():
     w.make_label(frame, 0, col, "Filter")
     col += 1
 
-    G.filter_name = w.make_entry(frame, 0, col)
+    filters = ["hue1", "hue2", "hue3", "hue4", "hue5", "hue6", "hue7", "hue8", "anyhue", "anyhue2", \
+        "gray", "grey", "blur", "invert", "random", "random2", "none"]
+    G.filter_name = w.make_select(frame, 0, col, filters)
+    G.filter_name.set("none")
     col += 1
 
 
@@ -158,5 +161,7 @@ def frame_output():
     w.make_label(frame, 0, col, "Format")
     col += 1
 
-    G.format_name = w.make_entry(frame, 0, col)
+    formats = ["gif", "webm", "mp4", "jpg", "png"]
+    G.format_name = w.make_select(frame, 0, col, formats)
+    G.format_name.set("gif")
     col += 1

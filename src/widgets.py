@@ -44,7 +44,7 @@ def make_button(frame, row, col, text, command, color="grey", text_color=None, h
 
 
 def make_select(frame, row, col, values, sticky="w"):
-    select = tk.CTkComboBox(frame, values=values, state="readonly", width=100, font=config.font)
+    select = tk.CTkComboBox(frame, values=values, state="readonly", width=config.select_width, font=config.font)
     select.set(values[0])
     select.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return select
