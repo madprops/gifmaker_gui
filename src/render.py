@@ -2,6 +2,9 @@
 from config import G
 import utils
 
+# Libraries
+from tkinter import messagebox
+
 # Standard
 import subprocess
 
@@ -39,10 +42,8 @@ def render():
     result = subprocess.run(command, capture_output=True, text=True)
 
     if result.returncode == 0:
-        print("Command executed successfully")
-        print("Standard Output:")
+        messagebox.showinfo("Alert", f"File was saved at: {result.stdout}")
         print(result.stdout)
     else:
-        print(f"Command failed with return code: {result.returncode}")
-        print("Standard Error:")
+        messagebox.showerror("Error", result.stderr)
         print(result.stderr)
