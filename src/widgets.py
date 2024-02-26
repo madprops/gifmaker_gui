@@ -18,9 +18,13 @@ def make_label(frame, row, col, text, sticky="w"):
     return label
 
 
-def make_entry(frame, row, col, placeholder, width=config.entry_width, sticky="w"):
+def make_entry(frame, row, col, value="", width=config.entry_width, sticky="w", placeholder=""):
     entry = tk.CTkEntry(frame, placeholder_text=placeholder, font=config.font, width=width)
     entry.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
+
+    if value:
+        entry.insert(0, value)
+
     return entry
 
 

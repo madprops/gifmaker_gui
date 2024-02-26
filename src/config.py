@@ -21,3 +21,25 @@ def prepare(app_o):
 
     app = app_o
     font = tk.CTkFont(family=font_family, size=font_size)
+
+
+class G:
+    input_path = None
+    words = None
+    font_name = None
+    font_size = None
+    font_color = None
+    top = None
+    bottom = None
+    left = None
+    right = None
+    bgcolor = None
+    opacity = None
+    padding = None
+    radius = None
+    delay = None
+    filter_name = None
+    frames = None
+    outline = None
+    output_path = None
+    format_name = None
