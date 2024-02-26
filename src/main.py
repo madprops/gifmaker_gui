@@ -6,7 +6,6 @@ import render
 
 # Libraries
 import customtkinter as tk
-from tkinter import filedialog
 
 tk.set_appearance_mode("dark")
 tk.set_default_color_theme("green")
@@ -15,12 +14,6 @@ app = tk.CTk()
 app.geometry(f"{config.width}x{config.height}")
 app.grid_columnconfigure(0, weight=1)
 config.prepare(app)
-
-
-def browse(entry):
-    file_path = filedialog.askopenfilename()
-    entry.delete(0, tk.END)
-    entry.insert(0, file_path)
 
 
 # ---
@@ -37,7 +30,7 @@ def frame_input():
     G.input_path = w.make_entry(frame, 0, col, placeholder="Path to a file", sticky="ew")
     col += 1
 
-    w.make_button(frame, 0, col, "Browse", lambda: browse(input_path))
+    w.make_button(frame, 0, col, "Browse", lambda: w.browse(G.input_path))
     col += 1
 
     w.make_button(frame, 0, col, "Render", lambda: render.render(),

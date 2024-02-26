@@ -3,6 +3,13 @@ import config
 
 # Libraries
 import customtkinter as tk
+from tkinter import filedialog
+
+
+def browse(entry):
+    file_path = filedialog.askopenfilename()
+    entry.delete(0, tk.END)
+    entry.insert(0, file_path)
 
 
 def make_frame():
