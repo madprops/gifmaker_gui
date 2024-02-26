@@ -152,7 +152,7 @@ def frame_output():
     w.make_label(frame, 0, col, "Output")
     col += 1
 
-    G.output_path = w.make_entry(frame, 0, col, sticky="ew")
+    G.output_path = w.make_entry(frame, 0, col, sticky="ew", placeholder="Where to save the file")
     col += 1
 
     w.make_label(frame, 0, col, "Format")
