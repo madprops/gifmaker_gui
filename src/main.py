@@ -2,14 +2,11 @@
 import config
 from config import G
 import widgets as w
+import render
 
 # Libraries
 import customtkinter as tk
 from tkinter import filedialog
-
-# Standard
-import subprocess
-import sys
 
 tk.set_appearance_mode("dark")
 tk.set_default_color_theme("green")
@@ -20,56 +17,11 @@ app.grid_columnconfigure(0, weight=1)
 config.prepare(app)
 
 
-def render():
-    command = ["gifmaker"]
-
-    def add_arg(var, flag):
-        value = var.get()
-
-        if value:
-            command.extend([f"--{flag}", value])
-
-    add_arg(G.input_path, "input")
-    add_arg(G.words, "words")
-    add_arg(G.font_name, "font")
-    add_arg(G.font_size, "fontsize")
-    add_arg(G.font_color, "fontcolor")
-    add_arg(G.top, "top")
-    add_arg(G.bottom, "bottom")
-    add_arg(G.left, "left")
-    add_arg(G.right, "right")
-    add_arg(G.bgcolor, "bgcolor")
-    add_arg(G.opacity, "opacity")
-    add_arg(G.padding, "padding")
-    add_arg(G.radius, "radius")
-    add_arg(G.delay, "delay")
-    add_arg(G.filter_name, "filter")
-    add_arg(G.frames, "frames")
-    add_arg(G.outline, "outline")
-    add_arg(G.output_path, "output")
-    add_arg(G.format_name, "format")
-
-    msg("Running Gifmaker")
-    result = subprocess.run(command, capture_output=True, text=True)
-
-    if result.returncode == 0:
-        print("Command executed successfully")
-        print("Standard Output:")
-        print(result.stdout)
-    else:
-        print(f"Command failed with return code: {result.returncode}")
-        print("Standard Error:")
-        print(result.stderr)
-
-
 def browse(entry):
     file_path = filedialog.askopenfilename()
     entry.delete(0, tk.END)
     entry.insert(0, file_path)
 
-
-def msg(message: str) -> None:
-    print(message, file=sys.stderr)
 
 # ---
 
@@ -88,7 +40,7 @@ def frame_input():
     w.make_button(frame, 0, col, "Browse", lambda: browse(input_path))
     col += 1
 
-    w.make_button(frame, 0, col, "Render", lambda: render(),
+    w.make_button(frame, 0, col, "Render", lambda: render.render(),
                   color="lightblue", text_color="black", hover_color=("blue", "white"))
     col += 1
 
