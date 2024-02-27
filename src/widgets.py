@@ -4,7 +4,7 @@ from config import args
 from framedata import FrameData
 
 # Libraries
-import customtkinter as tk # type: ignore
+import customtkinter as tk  # type: ignore
 from tkinter import filedialog
 
 # Standard
@@ -31,7 +31,7 @@ def make_label(d: FrameData, text: str, sticky: str = "w") -> tk.CTkLabel:
     return label
 
 
-def make_text(d: FrameData, value: str = "", width: Union[int, None] = None, sticky: str = "w", \
+def make_text(d: FrameData, value: str = "", width: Union[int, None] = None, sticky: str = "w",
               placeholder: str = "") -> tk.CTkEntry:
     w = width if width else config.text_width
     widget = tk.CTkEntry(d.frame, placeholder_text=placeholder, font=config.font, width=w)
@@ -44,8 +44,8 @@ def make_text(d: FrameData, value: str = "", width: Union[int, None] = None, sti
     return widget
 
 
-def make_button(d: FrameData, text: str, command: Callable[..., Any], color: str = "grey", \
-                text_color: Union[str, None] = None, hover_color: Union[Tuple[str, str], None] = None, \
+def make_button(d: FrameData, text: str, command: Callable[..., Any], color: str = "grey",
+                text_color: Union[str, None] = None, hover_color: Union[Tuple[str, str], None] = None,
                 sticky: str = "w") -> tk.CTkButton:
     widget = tk.CTkButton(d.frame, text=text, command=command, font=config.font,
                           fg_color=color, text_color=text_color, hover_color=hover_color, )
