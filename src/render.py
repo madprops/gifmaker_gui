@@ -13,7 +13,6 @@ def render():
     command = ["gifmaker"]
 
     def add_arg(item):
-        name = item["name"]
         value = item["widget"].get()
         default = str(item["default"])
 
@@ -23,9 +22,9 @@ def render():
                     return
 
             if isinstance(value, bool):
-                cmd = [f"--{name}"]
+                cmd = [f"--{key}"]
             else:
-                cmd = [f"--{name}", value]
+                cmd = [f"--{key}", value]
 
             command.extend(cmd)
 
