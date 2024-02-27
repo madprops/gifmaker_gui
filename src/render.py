@@ -5,6 +5,7 @@ import utils
 
 # Libraries
 import tkinter as tk
+import customtkinter as ctk  # type: ignore
 from tkinter import messagebox, simpledialog
 
 # Standard
@@ -47,20 +48,20 @@ def render() -> None:
 
 
 class ResultDialog(simpledialog.Dialog):
-    def __init__(self, parent: tk.Frame, path: str):
+    def __init__(self, parent: ctk.CTkFrame, path: str):
         self.path = path
         super().__init__(parent)
 
-    def body(self, parent: tk.Frame) -> None:
+    def body(self, parent: ctk.CTkFrame) -> None:
         tk.Label(parent, text=f"File saved at: {self.path}").pack()
 
-        self.button1 = tk.Button(parent, text="Open File", command=self.open_file_click)
+        self.button1 = ctk.CTkButton(parent, text="Open File", command=self.open_file_click)
         self.button1.pack(side=tk.LEFT, padx=5)
 
-        self.button1 = tk.Button(parent, text="Open Directory", command=self.open_dir_click)
+        self.button1 = ctk.CTkButton(parent, text="Open Directory", command=self.open_dir_click)
         self.button1.pack(side=tk.LEFT, padx=5)
 
-        self.button2 = tk.Button(parent, text="Dismiss", command=self.dismiss_click)
+        self.button2 = ctk.CTkButton(parent, text="Dismiss", command=self.dismiss_click)
         self.button2.pack(side=tk.LEFT, padx=5)
 
     def buttonbox(self) -> None:

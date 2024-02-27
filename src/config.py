@@ -2,14 +2,14 @@
 import utils
 
 # Libraries
-import customtkinter as tk # type: ignore
+import customtkinter as ctk # type: ignore
 
 # Standard
 import json
 import subprocess
 from typing import Dict, Any
 
-app: tk.CTk = None
+app: ctk.CTk = None
 width = 820
 height = 720
 
@@ -86,12 +86,12 @@ args: Dict[str, Any] = {
 
 def prepare() -> None:
     global app, font
-    tk.set_appearance_mode("dark")
-    tk.set_default_color_theme("green")
-    app = tk.CTk()
+    ctk.set_appearance_mode("dark")
+    ctk.set_default_color_theme("green")
+    app = ctk.CTk()
     app.geometry(f"{width}x{height}")
     app.grid_columnconfigure(0, weight=1)
-    font = tk.CTkFont(family=font_family, size=font_size)
+    font = ctk.CTkFont(family=font_family, size=font_size)
     get_defaults()
 
 
