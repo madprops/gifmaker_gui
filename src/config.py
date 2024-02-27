@@ -1,5 +1,12 @@
+# Modules
+import utils
+
 # Libraries
 import customtkinter as tk
+
+# Standard
+import json
+import subprocess
 
 app = None
 width = 820
@@ -16,9 +23,53 @@ select_width = 110
 font = None
 frame_number = 0
 
+G = {
+    "input_path": {"name": "input"},
+    "words": {"name": "words"},
+    "font_name": {"name": "font"},
+    "font_size": {"name": "fontsize"},
+    "font_color": {"name": "fontcolor"},
+    "top": {"name": "top"},
+    "bottom": {"name": "bottom"},
+    "left": {"name": "left"},
+    "right": {"name": "right"},
+    "bgcolor": {"name": "bgcolor"},
+    "opacity": {"name": "opacity"},
+    "padding": {"name": "padding"},
+    "radius": {"name": "radius"},
+    "delay": {"name": "delay"},
+    "filter_name": {"name": "filter"},
+    "frames": {"name": "frames"},
+    "outline": {"name": "outline"},
+    "output_path": {"name": "output"},
+    "format_name": {"name": "format"},
+    "fill_words": {"name": "fillwords"},
+    "fill_gen": {"name": "fillgen"},
+    "deep_fry": {"name": "deepfry"},
+    "vertical": {"name": "vertical"},
+    "horizontal": {"name": "horizontal"},
+    "descender": {"name": "descender"},
+    "outline_top": {"name": "no_outline_top", "reverse": True},
+    "outline_bottom": {"name": "no_outline_bottom", "reverse": True},
+    "outline_left": {"name": "no_outline_left", "reverse": True},
+    "outline_right": {"name": "no_outline_right", "reverse": True},
+}
+
 
 def prepare():
-    global app, font
+    global app, font, defaults
+
+    command = ["gifmaker", "--mode", "defaults"]
+    result = subprocess.run(command, capture_output=True, text=True)
+
+    if result.returncode == 0:
+        defaults = json.loads(result.stdout)
+
+        for key in G:
+            G[key]["default"] = defaults[G[key]["name"]]
+    else:
+        utils.msg("Error", result.stderr)
+        return
 
     tk.set_appearance_mode("dark")
     tk.set_default_color_theme("green")
@@ -26,35 +77,3 @@ def prepare():
     app.geometry(f"{width}x{height}")
     app.grid_columnconfigure(0, weight=1)
     font = tk.CTkFont(family=font_family, size=font_size)
-
-
-class G:
-    input_path = None
-    words = None
-    font_name = None
-    font_size = None
-    font_color = None
-    top = None
-    bottom = None
-    left = None
-    right = None
-    bgcolor = None
-    opacity = None
-    padding = None
-    radius = None
-    delay = None
-    filter_name = None
-    frames = None
-    outline = None
-    output_path = None
-    format_name = None
-    fill_words = None
-    fill_gen = None
-    deep_fry = None
-    vertical = None
-    horizontal = None
-    descender = None
-    outline_top = None
-    outline_bottom = None
-    outline_left = None
-    outline_right = None
