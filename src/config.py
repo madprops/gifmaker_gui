@@ -79,6 +79,7 @@ G = {
     "order": {"name": "order", "type": "select"},
     "randomlist": {"name": "randomlist", "type": "text"},
     "filteropts": {"name": "filteropts", "type": "text"},
+    "filterlist": {"name": "filterlist", "type": "text"},
 }
 
 

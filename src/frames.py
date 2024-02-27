@@ -56,6 +56,12 @@ def frame_decorations():
     frame = w.make_frame()
     col = 0
 
+    w.make_label(frame, col, "Delay")
+    col += 1
+
+    G["delay"]["widget"] = w.make_text(frame, col)
+    col += 1
+
     w.make_label(frame, col, "Outline")
     col += 1
 
@@ -138,12 +144,6 @@ def frame_frames():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, col, "Delay")
-    col += 1
-
-    G["delay"]["widget"] = w.make_text(frame, col)
-    col += 1
-
     w.make_label(frame, col, "Frames")
     col += 1
 
@@ -154,6 +154,12 @@ def frame_frames():
     col += 1
 
     G["filter_name"]["widget"] = w.make_select(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Filter List")
+    col += 1
+
+    G["filterlist"]["widget"] = w.make_text(frame, col, width=config.bigger_width)
     col += 1
 
     w.make_label(frame, col, "Filter Opts")
