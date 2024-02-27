@@ -44,8 +44,9 @@ def make_text(d: FrameData, value: str = "", width: Union[int, None] = None, sti
     return widget
 
 
-def make_button(d: FrameData, text: str, command: Callable[..., Any], color: str = "grey", text_color: Union[str, None] = None, \
-                hover_color: Union[Tuple[str, str], None] = None, sticky: str = "w") -> tk.CTkButton:
+def make_button(d: FrameData, text: str, command: Callable[..., Any], color: str = "grey", \
+                text_color: Union[str, None] = None, hover_color: Union[Tuple[str, str], None] = None, \
+                sticky: str = "w") -> tk.CTkButton:
     widget = tk.CTkButton(d.frame, text=text, command=command, font=config.font,
                           fg_color=color, text_color=text_color, hover_color=hover_color, )
 
