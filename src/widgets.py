@@ -59,7 +59,12 @@ def make_checkbox(frame, row, col, sticky="w"):
 
 def fill_widgets():
     for key in G:
-        set_widget(G[key]["widget"], G[key]["default"], G[key]["type"])
+        value = G[key]["default"]
+
+        if G[key].get("reverse"):
+            value = not value
+
+        set_widget(G[key]["widget"], value, G[key]["type"])
 
 
 def set_widget(widget, value, wtype):

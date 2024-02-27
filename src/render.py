@@ -20,13 +20,23 @@ def render():
         if reverse:
             value = not value
 
-        if value and (value != item["default"]):
-            command.extend([f"--{name}", value])
+        if (value is not None) and (value != item["default"]):
+            if isinstance(value, str):
+                if not value:
+                    return
+
+            if isinstance(value, bool):
+                cmd = [f"--{name}"]
+            else:
+                cmd = [f"--{name}", value]
+
+            command.extend(cmd)
 
     for key in G:
         add_arg(G[key])
 
-    utils.msg("Running Gifmaker")
+    utils.msg(command)
+
     result = subprocess.run(command, capture_output=True, text=True)
 
     if result.returncode == 0:
