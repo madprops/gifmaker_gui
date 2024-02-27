@@ -19,7 +19,8 @@ def browse(text_widget: ctk.CTkEntry) -> None:
 
 def make_frame() -> ctk.CTkFrame:
     frame = ctk.CTkFrame(config.app, fg_color="transparent")
-    frame.grid(row=config.frame_number, column=0, padx=0, pady=0, sticky="ew")
+    frame.grid(row=config.frame_number, column=0, padx=config.frame_padx, \
+               pady=config.frame_pady, sticky="ew")
     config.frame_number += 1
     return frame
 

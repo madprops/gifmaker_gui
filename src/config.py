@@ -2,7 +2,7 @@
 import utils
 
 # Libraries
-import customtkinter as ctk # type: ignore
+import customtkinter as ctk  # type: ignore
 
 # Standard
 import json
@@ -10,14 +10,16 @@ import subprocess
 from typing import Dict, Any
 
 app: ctk.CTkFrame = None
-width = 820
-height = 720
+width = 1000
+height = 730
 
 padx = 6
 pady = 10
+frame_padx = 16
+frame_pady = 1
 
 font_size = 16
-font_family = "sans"
+font_family = "mono"
 text_width = 60
 select_width = 110
 bigger_width = 110
@@ -27,9 +29,9 @@ font = None
 frame_number = 0
 
 args: Dict[str, Any] = {
-    "input": {"label": "Input", "type": "text", "sticky": "ew", "placeholder": "Path to a file (gif, webm, mp4, jpg, png)"},
+    "input": {"label": "Input ", "type": "text", "sticky": "ew", "placeholder": "Path to a file (gif, webm, mp4, jpg, png)"},
     "output": {"label": "Output", "type": "text", "sticky": "ew", "placeholder": "You can leave it empty to save in the default directory"},
-    "words": {"label": "Words", "type": "text", "sticky": "ew", "placeholder": "Words to put on the frames. Separate frames with semicolons. Keywords include [random]"},
+    "words": {"label": "Words ", "type": "text", "sticky": "ew", "placeholder": "Words to put on the frames. Separate frames with semicolons. Keywords include [random]"},
     "font": {"label": "Font", "type": "text"},
     "fontsize": {"label": "Font Size", "type": "text"},
     "fontcolor": {"label": "Font Color", "type": "text", "width": bigger_width},
