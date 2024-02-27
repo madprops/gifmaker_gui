@@ -1,5 +1,6 @@
 # Modules
 import config
+from config import G
 
 # Libraries
 import customtkinter as tk
@@ -49,7 +50,50 @@ def make_select(frame, row, col, values, sticky="w"):
     select.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return select
 
+
 def make_checkbox(frame, row, col, sticky="w"):
     checkbox = tk.CTkCheckBox(frame, font=config.font, text="", onvalue=True, offvalue=False, width=1)
     checkbox.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return checkbox
+
+
+def fill_widgets():
+    for key in G:
+        set_widget(G[key]["widget"], G[key]["default"], G[key]["type"])
+
+
+def set_widget(widget, value, wtype):
+    if wtype == "entry":
+        set_entry(widget, value)
+    elif wtype == "checkbox":
+        set_checkbox(widget, value)
+    elif wtype == "select":
+        set_select(widget, value)
+
+
+def set_entry(widget, value):
+    if not value:
+        return
+
+    if not isinstance(value, str):
+        return
+
+    widget.delete(0, "end")
+    widget.insert(0, value)
+
+
+def set_checkbox(widget, value):
+    if not isinstance(value, bool):
+        return
+
+    if value:
+        widget.select()
+    else:
+        widget.deselect()
+
+
+def set_select(widget, value):
+    if not isinstance(value, str):
+        return
+
+    widget.set(value)

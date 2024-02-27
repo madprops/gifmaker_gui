@@ -24,41 +24,50 @@ font = None
 frame_number = 0
 
 G = {
-    "input_path": {"name": "input"},
-    "words": {"name": "words"},
-    "font_name": {"name": "font"},
-    "font_size": {"name": "fontsize"},
-    "font_color": {"name": "fontcolor"},
-    "top": {"name": "top"},
-    "bottom": {"name": "bottom"},
-    "left": {"name": "left"},
-    "right": {"name": "right"},
-    "bgcolor": {"name": "bgcolor"},
-    "opacity": {"name": "opacity"},
-    "padding": {"name": "padding"},
-    "radius": {"name": "radius"},
-    "delay": {"name": "delay"},
-    "filter_name": {"name": "filter"},
-    "frames": {"name": "frames"},
-    "outline": {"name": "outline"},
-    "output_path": {"name": "output"},
-    "format_name": {"name": "format"},
-    "fill_words": {"name": "fillwords"},
-    "fill_gen": {"name": "fillgen"},
-    "deep_fry": {"name": "deepfry"},
-    "vertical": {"name": "vertical"},
-    "horizontal": {"name": "horizontal"},
-    "descender": {"name": "descender"},
-    "outline_top": {"name": "no_outline_top", "reverse": True},
-    "outline_bottom": {"name": "no_outline_bottom", "reverse": True},
-    "outline_left": {"name": "no_outline_left", "reverse": True},
-    "outline_right": {"name": "no_outline_right", "reverse": True},
+    "input_path": {"type": "entry", "name": "input"},
+    "words": {"type": "entry", "name": "words"},
+    "font_name": {"type": "entry", "name": "font"},
+    "font_size": {"type": "entry", "name": "fontsize"},
+    "font_color": {"type": "entry", "name": "fontcolor"},
+    "top": {"type": "entry", "name": "top"},
+    "bottom": {"type": "entry", "name": "bottom"},
+    "left": {"type": "entry", "name": "left"},
+    "right": {"type": "entry", "name": "right"},
+    "bgcolor": {"type": "entry", "name": "bgcolor"},
+    "opacity": {"type": "entry", "name": "opacity"},
+    "padding": {"type": "entry", "name": "padding"},
+    "radius": {"type": "entry", "name": "radius"},
+    "delay": {"type": "entry", "name": "delay"},
+    "filter_name": {"type": "select", "name": "filter"},
+    "frames": {"type": "entry", "name": "frames"},
+    "outline": {"type": "entry", "name": "outline"},
+    "output_path": {"type": "entry", "name": "output"},
+    "format_name": {"type": "select", "name": "format"},
+    "fill_words": {"type": "checkbox", "name": "fillwords"},
+    "fill_gen": {"type": "checkbox", "name": "fillgen"},
+    "deep_fry": {"type": "checkbox", "name": "deepfry"},
+    "vertical": {"type": "checkbox", "name": "vertical"},
+    "horizontal": {"type": "checkbox", "name": "horizontal"},
+    "descender": {"type": "checkbox", "name": "descender"},
+    "outline_top": {"type": "checkbox", "name": "no_outline_top", "reverse": True},
+    "outline_bottom": {"type": "checkbox", "name": "no_outline_bottom", "reverse": True},
+    "outline_left": {"type": "checkbox", "name": "no_outline_left", "reverse": True},
+    "outline_right": {"type": "checkbox", "name": "no_outline_right", "reverse": True},
 }
 
 
 def prepare():
-    global app, font, defaults
+    global app, font
+    tk.set_appearance_mode("dark")
+    tk.set_default_color_theme("green")
+    app = tk.CTk()
+    app.geometry(f"{width}x{height}")
+    app.grid_columnconfigure(0, weight=1)
+    font = tk.CTkFont(family=font_family, size=font_size)
+    get_defaults()
 
+
+def get_defaults():
     command = ["gifmaker", "--mode", "defaults"]
     result = subprocess.run(command, capture_output=True, text=True)
 
@@ -70,10 +79,3 @@ def prepare():
     else:
         utils.msg("Error", result.stderr)
         return
-
-    tk.set_appearance_mode("dark")
-    tk.set_default_color_theme("green")
-    app = tk.CTk()
-    app.geometry(f"{width}x{height}")
-    app.grid_columnconfigure(0, weight=1)
-    font = tk.CTkFont(family=font_family, size=font_size)

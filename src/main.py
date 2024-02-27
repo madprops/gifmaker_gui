@@ -1,6 +1,7 @@
 # Modules
 import config
 import frames
+import widgets
 
 config.prepare()
 
@@ -15,4 +16,5 @@ frames.frame_checkboxes_1()
 frames.frame_checkboxes_2()
 frames.frame_outline()
 
+widgets.fill_widgets()
 config.app.mainloop()

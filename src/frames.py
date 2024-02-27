@@ -143,7 +143,6 @@ def frame_frames():
     filters = ["hue1", "hue2", "hue3", "hue4", "hue5", "hue6", "hue7", "hue8", "anyhue", "anyhue2",
                "gray", "grey", "blur", "invert", "random", "random2", "none"]
     G["filter_name"]["widget"] = w.make_select(frame, 0, col, filters)
-    G["filter_name"]["widget"].set("none")
     col += 1
 
 
@@ -163,7 +162,6 @@ def frame_output():
 
     formats = ["gif", "webm", "mp4", "jpg", "png"]
     G["format_name"]["widget"] = w.make_select(frame, 0, col, formats)
-    G["format_name"]["widget"].set("gif")
     col += 1
 
 
