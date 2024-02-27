@@ -9,16 +9,16 @@ def frame_input():
     frame.grid_columnconfigure(1, weight=1)
     col = 0
 
-    w.make_label(frame, 0, col, "Input")
+    w.make_label(frame, col, "Input")
     col += 1
 
-    G["input_path"]["widget"] = w.make_entry(frame, 0, col, placeholder="Path to a file", sticky="ew")
+    G["input_path"]["widget"] = w.make_entry(frame, col, placeholder="Path to a file", sticky="ew")
     col += 1
 
-    w.make_button(frame, 0, col, "Browse", lambda: w.browse(G["input_path"]["widget"]))
+    w.make_button(frame, col, "Browse", lambda: w.browse(G["input_path"]["widget"]))
     col += 1
 
-    w.make_button(frame, 0, col, "Render", lambda: render.render(),
+    w.make_button(frame, col, "Render", lambda: render.render(),
                   color="lightblue", text_color="black", hover_color=("blue", "white"))
     col += 1
 
@@ -27,28 +27,28 @@ def frame_font():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, 0, col, "Font")
+    w.make_label(frame, col, "Font")
     col += 1
 
-    G["font_name"]["widget"] = w.make_entry(frame, 0, col)
+    G["font_name"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Font Size")
+    w.make_label(frame, col, "Font Size")
     col += 1
 
-    G["font_size"]["widget"] = w.make_entry(frame, 0, col)
+    G["font_size"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Font Color")
+    w.make_label(frame, col, "Font Color")
     col += 1
 
-    G["font_color"]["widget"] = w.make_entry(frame, 0, col, width=config.bigger_width)
+    G["font_color"]["widget"] = w.make_entry(frame, col, width=config.bigger_width)
     col += 1
 
-    w.make_label(frame, 0, col, "BG Color")
+    w.make_label(frame, col, "BG Color")
     col += 1
 
-    G["bgcolor"]["widget"] = w.make_entry(frame, 0, col, width=config.bigger_width)
+    G["bgcolor"]["widget"] = w.make_entry(frame, col, width=config.bigger_width)
     col += 1
 
 
@@ -56,28 +56,28 @@ def frame_decorations():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, 0, col, "Outline")
+    w.make_label(frame, col, "Outline")
     col += 1
 
-    G["outline"]["widget"] = w.make_entry(frame, 0, col)
+    G["outline"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Opacity")
+    w.make_label(frame, col, "Opacity")
     col += 1
 
-    G["opacity"]["widget"] = w.make_entry(frame, 0, col)
+    G["opacity"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Padding")
+    w.make_label(frame, col, "Padding")
     col += 1
 
-    G["padding"]["widget"] = w.make_entry(frame, 0, col)
+    G["padding"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Radius")
+    w.make_label(frame, col, "Radius")
     col += 1
 
-    G["radius"]["widget"] = w.make_entry(frame, 0, col)
+    G["radius"]["widget"] = w.make_entry(frame, col)
     col += 1
 
 
@@ -86,10 +86,10 @@ def frame_words():
     frame.grid_columnconfigure(1, weight=1)
     col = 0
 
-    w.make_label(frame, 0, col, "Words")
+    w.make_label(frame, col, "Words")
     col += 1
 
-    G["words"]["widget"] = w.make_entry(frame, 0, col, placeholder="Words to put on the frames", sticky="ew")
+    G["words"]["widget"] = w.make_entry(frame, col, placeholder="Words to put on the frames", sticky="ew")
     col += 1
 
 
@@ -97,28 +97,28 @@ def frame_position():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, 0, col, "Top")
+    w.make_label(frame, col, "Top")
     col += 1
 
-    G["top"]["widget"] = w.make_entry(frame, 0, col)
+    G["top"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Bottom")
+    w.make_label(frame, col, "Bottom")
     col += 1
 
-    G["bottom"]["widget"] = w.make_entry(frame, 0, col)
+    G["bottom"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Left")
+    w.make_label(frame, col, "Left")
     col += 1
 
-    G["left"]["widget"] = w.make_entry(frame, 0, col)
+    G["left"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Right")
+    w.make_label(frame, col, "Right")
     col += 1
 
-    G["right"]["widget"] = w.make_entry(frame, 0, col)
+    G["right"]["widget"] = w.make_entry(frame, col)
     col += 1
 
 
@@ -126,22 +126,22 @@ def frame_frames():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, 0, col, "Delay")
+    w.make_label(frame, col, "Delay")
     col += 1
 
-    G["delay"]["widget"] = w.make_entry(frame, 0, col)
+    G["delay"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Frames")
+    w.make_label(frame, col, "Frames")
     col += 1
 
-    G["frames"]["widget"] = w.make_entry(frame, 0, col)
+    G["frames"]["widget"] = w.make_entry(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Filter")
+    w.make_label(frame, col, "Filter")
     col += 1
 
-    G["filter_name"]["widget"] = w.make_select(frame, 0, col, ["empty"])
+    G["filter_name"]["widget"] = w.make_select(frame, col, ["empty"])
     col += 1
 
 
@@ -150,57 +150,57 @@ def frame_output():
     frame.grid_columnconfigure(1, weight=1)
     col = 0
 
-    w.make_label(frame, 0, col, "Output")
+    w.make_label(frame, col, "Output")
     col += 1
 
-    G["output_path"]["widget"] = w.make_entry(frame, 0, col, sticky="ew", placeholder="Where to save the file")
+    G["output_path"]["widget"] = w.make_entry(frame, col, sticky="ew", placeholder="Where to save the file")
     col += 1
 
-    w.make_label(frame, 0, col, "Format")
+    w.make_label(frame, col, "Format")
     col += 1
 
-    G["format_name"]["widget"] = w.make_select(frame, 0, col, ["empty"])
+    G["format_name"]["widget"] = w.make_select(frame, col, ["empty"])
     col += 1
 
 
-def frame_checkboxes_1():
+def frame_checkboxes():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, 0, col, "Fill Words")
+    w.make_label(frame, col, "Fill Words")
     col += 1
 
-    G["fill_words"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["fill_words"]["widget"] = w.make_checkbox(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Fill Gen")
+    w.make_label(frame, col, "Fill Gen")
     col += 1
 
-    G["fill_gen"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["fill_gen"]["widget"] = w.make_checkbox(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Descenders")
+    w.make_label(frame, col, "Descenders")
     col += 1
 
-    G["descender"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["descender"]["widget"] = w.make_checkbox(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Deep Fry")
+    w.make_label(frame, col, "Deep Fry")
     col += 1
 
-    G["deep_fry"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["deep_fry"]["widget"] = w.make_checkbox(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Vertical")
+    w.make_label(frame, col, "Vertical")
     col += 1
 
-    G["vertical"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["vertical"]["widget"] = w.make_checkbox(frame, col)
     col += 1
 
-    w.make_label(frame, 0, col, "Horizontal")
+    w.make_label(frame, col, "Horizontal")
     col += 1
 
-    G["horizontal"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["horizontal"]["widget"] = w.make_checkbox(frame, col)
     col += 1
 
 
@@ -208,30 +208,87 @@ def frame_outline():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, 0, col, "Outline Top")
+    w.make_label(frame, col, "Outline Top")
     col += 1
 
-    G["outline_top"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["outline_top"]["widget"] = w.make_checkbox(frame, col)
     G["outline_top"]["widget"].select()
     col += 1
 
-    w.make_label(frame, 0, col, "Outline Bottom")
+    w.make_label(frame, col, "Outline Bottom")
     col += 1
 
-    G["outline_bottom"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["outline_bottom"]["widget"] = w.make_checkbox(frame, col)
     G["outline_bottom"]["widget"].select()
     col += 1
 
-    w.make_label(frame, 0, col, "Outline Left")
+    w.make_label(frame, col, "Outline Left")
     col += 1
 
-    G["outline_left"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["outline_left"]["widget"] = w.make_checkbox(frame, col)
     G["outline_left"]["widget"].select()
     col += 1
 
-    w.make_label(frame, 0, col, "Outline Right")
+    w.make_label(frame, col, "Outline Right")
     col += 1
 
-    G["outline_right"]["widget"] = w.make_checkbox(frame, 0, col)
+    G["outline_right"]["widget"] = w.make_checkbox(frame, col)
     G["outline_right"]["widget"].select()
+    col += 1
+
+
+def frame_seeds():
+    frame = w.make_frame()
+    col = 0
+
+    w.make_label(frame, col, "Seed")
+    col += 1
+
+    G["seed"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Frame Seed")
+    col += 1
+
+    G["frame_seed"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Word Seed")
+    col += 1
+
+    G["word_seed"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Filter Seed")
+    col += 1
+
+    G["filter_seed"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+def frame_opts():
+    frame = w.make_frame()
+    col = 0
+
+    w.make_label(frame, col, "Frame List")
+    col += 1
+
+    G["framelist"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Frame Opts")
+    col += 1
+
+    G["frameopts"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Repeat Random")
+    col += 1
+
+    G["repeat_random"]["widget"] = w.make_checkbox(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Repeat Filter")
+    col += 1
+
+    G["repeat_filter"]["widget"] = w.make_checkbox(frame, col)
     col += 1

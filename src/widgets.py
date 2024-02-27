@@ -20,16 +20,16 @@ def make_frame():
     return frame
 
 
-def make_label(frame, row, col, text, sticky="w"):
+def make_label(frame, col, text, sticky="w"):
     label = tk.CTkLabel(frame, text=f"{text}:", font=config.font)
-    label.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
+    label.grid(row=0, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return label
 
 
-def make_entry(frame, row, col, value="", width=None, sticky="w", placeholder=""):
+def make_entry(frame, col, value="", width=None, sticky="w", placeholder=""):
     w = width if width else config.entry_width
     entry = tk.CTkEntry(frame, placeholder_text=placeholder, font=config.font, width=w)
-    entry.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
+    entry.grid(row=0, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
 
     if value:
         entry.insert(0, value)
@@ -37,24 +37,24 @@ def make_entry(frame, row, col, value="", width=None, sticky="w", placeholder=""
     return entry
 
 
-def make_button(frame, row, col, text, command, color="grey", text_color=None, hover_color=None, sticky="w"):
+def make_button(frame, col, text, command, color="grey", text_color=None, hover_color=None, sticky="w"):
     button = tk.CTkButton(frame, text=text, command=command, font=config.font,
                           fg_color=color, text_color=text_color, hover_color=hover_color, )
 
-    button.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
+    button.grid(row=0, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return button
 
 
-def make_select(frame, row, col, values, sticky="w"):
+def make_select(frame, col, values, sticky="w"):
     select = tk.CTkComboBox(frame, values=values, state="readonly", width=config.select_width, font=config.font)
     select.set(values[0])
-    select.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
+    select.grid(row=0, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return select
 
 
-def make_checkbox(frame, row, col, sticky="w"):
+def make_checkbox(frame, col, sticky="w"):
     checkbox = tk.CTkCheckBox(frame, font=config.font, text="", onvalue=True, offvalue=False, width=1)
-    checkbox.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
+    checkbox.grid(row=0, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return checkbox
 
 

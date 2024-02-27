@@ -54,6 +54,14 @@ G = {
     "outline_bottom": {"type": "checkbox", "name": "no_outline_bottom", "reverse": True},
     "outline_left": {"type": "checkbox", "name": "no_outline_left", "reverse": True},
     "outline_right": {"type": "checkbox", "name": "no_outline_right", "reverse": True},
+    "seed": {"type": "entry", "name": "seed"},
+    "frame_seed": {"type": "entry", "name": "frameseed"},
+    "filter_seed": {"type": "entry", "name": "filterseed"},
+    "word_seed": {"type": "entry", "name": "wordseed"},
+    "framelist": {"type": "entry", "name": "framelist"},
+    "frameopts": {"type": "entry", "name": "frameopts"},
+    "repeat_random": {"type": "checkbox", "name": "repeatrandom"},
+    "repeat_filter": {"type": "checkbox", "name": "repeatfilter"},
 }
 
 
