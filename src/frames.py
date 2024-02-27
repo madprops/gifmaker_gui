@@ -56,16 +56,16 @@ def frame_decorations():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, col, "Delay")
-    col += 1
-
-    G["delay"]["widget"] = w.make_text(frame, col)
-    col += 1
-
     w.make_label(frame, col, "Outline")
     col += 1
 
     G["outline"]["widget"] = w.make_text(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Delay")
+    col += 1
+
+    G["delay"]["widget"] = w.make_text(frame, col)
     col += 1
 
     w.make_label(frame, col, "Opacity")
@@ -232,34 +232,34 @@ def frame_outline():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, col, "OutLn Width")
+    w.make_label(frame, col, "OL Width")
     col += 1
 
     G["outline_width"]["widget"] = w.make_text(frame, col)
     col += 1
 
-    w.make_label(frame, col, "OutLn Top")
+    w.make_label(frame, col, "No OL Top")
     col += 1
 
     G["outline_top"]["widget"] = w.make_checkbox(frame, col)
     G["outline_top"]["widget"].select()
     col += 1
 
-    w.make_label(frame, col, "OutLn Bottom")
+    w.make_label(frame, col, "No OL Bottom")
     col += 1
 
     G["outline_bottom"]["widget"] = w.make_checkbox(frame, col)
     G["outline_bottom"]["widget"].select()
     col += 1
 
-    w.make_label(frame, col, "OutLn Left")
+    w.make_label(frame, col, "No OL Left")
     col += 1
 
     G["outline_left"]["widget"] = w.make_checkbox(frame, col)
     G["outline_left"]["widget"].select()
     col += 1
 
-    w.make_label(frame, col, "OutLn Right")
+    w.make_label(frame, col, "No OL Right")
     col += 1
 
     G["outline_right"]["widget"] = w.make_checkbox(frame, col)

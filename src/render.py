@@ -15,11 +15,6 @@ def render():
     def add_arg(item):
         name = item["name"]
         value = item["widget"].get()
-        reverse = item.get("reverse")
-
-        if reverse:
-            value = not value
-
         default = str(item["default"])
 
         if (value is not None) and (str(value) != default):
