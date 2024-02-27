@@ -208,28 +208,34 @@ def frame_outline():
     frame = w.make_frame()
     col = 0
 
-    w.make_label(frame, col, "Outline Top")
+    w.make_label(frame, col, "OutLn Width")
+    col += 1
+
+    G["outline_width"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "OutLn Top")
     col += 1
 
     G["outline_top"]["widget"] = w.make_checkbox(frame, col)
     G["outline_top"]["widget"].select()
     col += 1
 
-    w.make_label(frame, col, "Outline Bottom")
+    w.make_label(frame, col, "OutLn Bottom")
     col += 1
 
     G["outline_bottom"]["widget"] = w.make_checkbox(frame, col)
     G["outline_bottom"]["widget"].select()
     col += 1
 
-    w.make_label(frame, col, "Outline Left")
+    w.make_label(frame, col, "OutLn Left")
     col += 1
 
     G["outline_left"]["widget"] = w.make_checkbox(frame, col)
     G["outline_left"]["widget"].select()
     col += 1
 
-    w.make_label(frame, col, "Outline Right")
+    w.make_label(frame, col, "OutLn Right")
     col += 1
 
     G["outline_right"]["widget"] = w.make_checkbox(frame, col)
@@ -291,4 +297,26 @@ def frame_opts():
     col += 1
 
     G["repeat_filter"]["widget"] = w.make_checkbox(frame, col)
+    col += 1
+
+def frame_someboxes():
+    frame = w.make_frame()
+    col = 0
+
+    w.make_label(frame, col, "Wrap")
+    col += 1
+
+    G["wrap"]["widget"] = w.make_entry(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "No Wrap")
+    col += 1
+
+    G["nowrap"]["widget"] = w.make_checkbox(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "No Grow")
+    col += 1
+
+    G["nogrow"]["widget"] = w.make_checkbox(frame, col)
     col += 1

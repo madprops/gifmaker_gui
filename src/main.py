@@ -16,6 +16,7 @@ frames.frame_checkboxes()
 frames.frame_outline()
 frames.frame_seeds()
 frames.frame_opts()
+frames.frame_someboxes()
 
 widgets.fill_widgets()
 config.app.mainloop()
