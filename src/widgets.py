@@ -1,6 +1,6 @@
 # Modules
 import config
-from config import G
+from config import args
 
 # Libraries
 import customtkinter as tk
@@ -64,9 +64,9 @@ def make_checkbox(frame, d, sticky="w"):
 
 
 def fill_widgets():
-    for key in G:
-        value = G[key]["default"]
-        set_widget(G[key]["widget"], value, G[key]["type"], G[key].get("choices"))
+    for key in args:
+        value = args[key]["default"]
+        set_widget(args[key]["widget"], value, args[key]["type"], args[key].get("choices"))
 
 
 def set_widget(widget, value, wtype, extra):
@@ -105,7 +105,7 @@ def set_select(widget, value, extra):
     widget.set(value)
 
 def add(frame, name, d):
-    item = G[name]
+    item = args[name]
     make_label(frame, d, item["label"])
 
     if item["type"] == "text":

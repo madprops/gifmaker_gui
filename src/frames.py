@@ -1,4 +1,4 @@
-from config import G
+from config import args
 import widgets as w
 import render
 
@@ -10,7 +10,7 @@ def frame_input():
 
     w.add(frame, "input", d)
 
-    w.make_button(frame, d, "Browse", lambda: w.browse(G["input_path"]["widget"]))
+    w.make_button(frame, d, "Browse", lambda: w.browse(args["input_path"]["widget"]))
 
     w.make_button(frame, d, "Render", lambda: render.render(),
                   color="lightblue", text_color="black", hover_color=("blue", "white"))

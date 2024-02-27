@@ -1,6 +1,6 @@
 # Modules
 import config
-from config import G
+from config import args
 import utils
 
 # Libraries
@@ -31,8 +31,8 @@ def render():
 
             command.extend(cmd)
 
-    for key in G:
-        add_arg(G[key])
+    for key in args:
+        add_arg(args[key])
 
     utils.msg(" ".join(command))
 

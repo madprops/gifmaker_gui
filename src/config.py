@@ -25,7 +25,7 @@ path_width = 150
 font = None
 frame_number = 0
 
-G = {
+args = {
     "input": {"label": "Input", "type": "text", "sticky": "ew", "placeholder": "Path to a file (gif, webm, mp4, jpg, png)"},
     "output": {"label": "Output", "type": "text", "sticky": "ew", "placeholder": "You can leave it empty to save in the default directory"},
     "words": {"label": "Words", "type": "text", "sticky": "ew", "placeholder": "Words to put on the frames. Separate frames with semicolons. Keywords include [random]"},
@@ -101,12 +101,12 @@ def get_defaults():
     if result.returncode == 0:
         defaults = json.loads(result.stdout)
 
-        for key in G:
-            G[key]["default"] = defaults[key]
+        for key in args:
+            args[key]["default"] = defaults[key]
             choices_key = f"_choices_{key}"
 
             if choices_key in defaults:
-                G[key]["choices"] = defaults[choices_key]
+                args[key]["choices"] = defaults[choices_key]
     else:
         utils.msg("Error", result.stderr)
         return
