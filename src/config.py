@@ -107,10 +107,6 @@ def get_defaults() -> None:
 
         for key in args:
             args[key]["default"] = defaults[key]
-            choices_key = f"_choices_{key}"
-
-            if choices_key in defaults:
-                args[key]["choices"] = defaults[choices_key]
     else:
         utils.msg(result.stderr)
         return
