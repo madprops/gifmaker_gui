@@ -73,6 +73,11 @@ G = {
     "loop": {"name": "loop", "type": "checkbox"},
     "remake": {"name": "remake", "type": "checkbox"},
     "align": {"name": "align", "type": "select"},
+    "width": {"name": "width", "type": "text"},
+    "height": {"name": "height", "type": "text"},
+    "separator": {"name": "separator", "type": "text"},
+    "order": {"name": "order", "type": "select"},
+    "random_list": {"name": "randomlist", "type": "text"},
 }
 
 

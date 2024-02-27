@@ -144,6 +144,18 @@ def frame_frames():
     G["filter_name"]["widget"] = w.make_select(frame, col)
     col += 1
 
+    w.make_label(frame, col, "Width")
+    col += 1
+
+    G["width"]["widget"] = w.make_text(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Height")
+    col += 1
+
+    G["height"]["widget"] = w.make_text(frame, col)
+    col += 1
+
 
 def frame_output():
     frame = w.make_frame()
@@ -323,6 +335,12 @@ def frame_someboxes():
     G["nogrow"]["widget"] = w.make_checkbox(frame, col)
     col += 1
 
+    w.make_label(frame, col, "Random List")
+    col += 1
+
+    G["random_list"]["widget"] = w.make_text(frame, col, width=config.path_width)
+    col += 1
+
 
 def frame_files():
     frame = w.make_frame()
@@ -346,6 +364,7 @@ def frame_files():
     G["word_file"]["widget"] = w.make_text(frame, col, width=config.path_width)
     col += 1
 
+
 def frame_stuff():
     frame = w.make_frame()
     col = 0
@@ -366,4 +385,16 @@ def frame_stuff():
     col += 1
 
     G["loop"]["widget"] = w.make_checkbox(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Separator")
+    col += 1
+
+    G["separator"]["widget"] = w.make_text(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Order")
+    col += 1
+
+    G["order"]["widget"] = w.make_select(frame, col)
     col += 1
