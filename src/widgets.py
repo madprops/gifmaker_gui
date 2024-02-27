@@ -45,9 +45,9 @@ def make_button(frame, col, text, command, color="grey", text_color=None, hover_
     return widget
 
 
-def make_select(frame, col, values, sticky="w"):
-    widget = tk.CTkComboBox(frame, values=values, state="readonly", width=config.select_width, font=config.font)
-    widget.set(values[0])
+def make_select(frame, col, values=None, sticky="w"):
+    v = values if values else ["empty"]
+    widget = tk.CTkComboBox(frame, values=v, state="readonly", width=config.select_width, font=config.font)
     widget.grid(row=0, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
     return widget
 

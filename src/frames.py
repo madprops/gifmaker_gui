@@ -141,7 +141,7 @@ def frame_frames():
     w.make_label(frame, col, "Filter")
     col += 1
 
-    G["filter_name"]["widget"] = w.make_select(frame, col, ["empty"])
+    G["filter_name"]["widget"] = w.make_select(frame, col)
     col += 1
 
 
@@ -159,7 +159,7 @@ def frame_output():
     w.make_label(frame, col, "Format")
     col += 1
 
-    G["format_name"]["widget"] = w.make_select(frame, col, ["empty"])
+    G["format_name"]["widget"] = w.make_select(frame, col)
     col += 1
 
 
@@ -344,4 +344,26 @@ def frame_files():
     col += 1
 
     G["word_file"]["widget"] = w.make_text(frame, col, width=config.path_width)
+    col += 1
+
+def frame_stuff():
+    frame = w.make_frame()
+    col = 0
+
+    w.make_label(frame, col, "Align")
+    col += 1
+
+    G["align"]["widget"] = w.make_select(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Remake")
+    col += 1
+
+    G["remake"]["widget"] = w.make_checkbox(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Loop")
+    col += 1
+
+    G["loop"]["widget"] = w.make_checkbox(frame, col)
     col += 1
