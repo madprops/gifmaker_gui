@@ -1,5 +1,9 @@
 import sys
 
 
-def msg(message: str) -> None:
+def msg(message):
     print(message, file=sys.stderr)
+
+
+def respond(message):
+    print(message, file=sys.stdout)
