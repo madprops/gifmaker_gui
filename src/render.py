@@ -10,12 +10,13 @@ from tkinter import messagebox, simpledialog
 # Standard
 import subprocess
 from pathlib import Path
+from typing import Dict, Any
 
 
-def render():
+def render() -> None:
     command = ["gifmaker"]
 
-    def add_arg(item):
+    def add_arg(item: Dict[str, Any]) -> None:
         value = item["widget"].get()
         default = str(item["default"])
 
@@ -46,11 +47,11 @@ def render():
 
 
 class ResultDialog(simpledialog.Dialog):
-    def __init__(self, parent, path):
+    def __init__(self, parent: tk.Frame, path: str):
         self.path = path
         super().__init__(parent)
 
-    def body(self, parent):
+    def body(self, parent: tk.Frame) -> None:
         tk.Label(parent, text=f"File saved at: {self.path}").pack()
 
         self.button1 = tk.Button(parent, text="Open File", command=self.open_file_click)
@@ -62,20 +63,20 @@ class ResultDialog(simpledialog.Dialog):
         self.button2 = tk.Button(parent, text="Dismiss", command=self.dismiss_click)
         self.button2.pack(side=tk.LEFT, padx=5)
 
-    def buttonbox(self):
+    def buttonbox(self) -> None:
         pass
 
-    def open_file_click(self):
+    def open_file_click(self) -> None:
         try:
             subprocess.run(["xdg-open", self.path], check=True)
         except subprocess.CalledProcessError as e:
             utils.msg(f"Error opening file: {e}")
 
-    def open_dir_click(self):
+    def open_dir_click(self) -> None:
         try:
             subprocess.run(["xdg-open", Path(self.path).parent], check=True)
         except subprocess.CalledProcessError as e:
             utils.msg(f"Error opening file: {e}")
 
-    def dismiss_click(self):
+    def dismiss_click(self) -> None:
         self.ok()

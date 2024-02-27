@@ -1,22 +1,24 @@
+# Modules
 from config import args
 import widgets as w
 import render
+from framedata import FrameData
 
 
-def get_d():
-    return {"frame": w.make_frame(), "col": 0}
+def get_d() -> FrameData:
+    return FrameData(w.make_frame(), 0)
 
 
-def frame_input():
+def frame_input() -> None:
     d = get_d()
-    d["frame"].grid_columnconfigure(1, weight=1)
+    d.frame.grid_columnconfigure(1, weight=1)
     w.add("input", d)
-    w.make_button(d, "Browse", lambda: w.browse(args["input_path"]["widget"]))
+    w.make_button(d, "Browse", lambda: w.browse(args["input"]["widget"]))
     w.make_button(d, "Render", lambda: render.render(),
                   color="lightblue", text_color="black", hover_color=("blue", "white"))
 
 
-def frame_font():
+def frame_font() -> None:
     d = get_d()
     w.add("font", d)
     w.add("fontsize", d)
@@ -24,7 +26,7 @@ def frame_font():
     w.add("bgcolor", d)
 
 
-def frame_decorations():
+def frame_decorations() -> None:
     d = get_d()
     w.add("outline", d)
     w.add("delay", d)
@@ -33,13 +35,13 @@ def frame_decorations():
     w.add("radius", d)
 
 
-def frame_words():
+def frame_words() -> None:
     d = get_d()
-    d["frame"].grid_columnconfigure(1, weight=1)
+    d.frame.grid_columnconfigure(1, weight=1)
     w.add("words", d)
 
 
-def frame_position():
+def frame_position() -> None:
     d = get_d()
     w.add("top", d)
     w.add("bottom", d)
@@ -49,7 +51,7 @@ def frame_position():
     w.add("height", d)
 
 
-def frame_frames():
+def frame_frames() -> None:
     d = get_d()
     w.add("frames", d)
     w.add("filter", d)
@@ -57,14 +59,14 @@ def frame_frames():
     w.add("filteropts", d)
 
 
-def frame_output():
+def frame_output() -> None:
     d = get_d()
-    d["frame"].grid_columnconfigure(1, weight=1)
+    d.frame.grid_columnconfigure(1, weight=1)
     w.add("output", d)
     w.add("format", d)
 
 
-def frame_checkboxes():
+def frame_checkboxes() -> None:
     d = get_d()
     w.add("fillwords", d)
     w.add("fillgen", d)
@@ -74,7 +76,7 @@ def frame_checkboxes():
     w.add("horizontal", d)
 
 
-def frame_outline():
+def frame_outline() -> None:
     d = get_d()
     w.add("outlinewidth", d)
     w.add("no_outline_top", d)
@@ -83,7 +85,7 @@ def frame_outline():
     w.add("no_outline_right", d)
 
 
-def frame_seeds():
+def frame_seeds() -> None:
     d = get_d()
     w.add("seed", d)
     w.add("frameseed", d)
@@ -91,7 +93,7 @@ def frame_seeds():
     w.add("filterseed", d)
 
 
-def frame_opts():
+def frame_opts() -> None:
     d = get_d()
     w.add("framelist", d)
     w.add("frameopts", d)
@@ -99,7 +101,7 @@ def frame_opts():
     w.add("repeatfilter", d)
 
 
-def frame_someboxes():
+def frame_someboxes() -> None:
     d = get_d()
     w.add("wrap", d)
     w.add("nowrap", d)
@@ -107,14 +109,14 @@ def frame_someboxes():
     w.add("randomlist", d)
 
 
-def frame_files():
+def frame_files() -> None:
     d = get_d()
     w.add("script", d)
     w.add("randomfile", d)
     w.add("wordfile", d)
 
 
-def frame_stuff():
+def frame_stuff() -> None:
     d = get_d()
     w.add("align", d)
     w.add("remake", d)
