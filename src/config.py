@@ -12,8 +12,8 @@ app = None
 width = 820
 height = 600
 
-padx = 8
-pady = 8
+padx = 5
+pady = 5
 
 font_size = 16
 font_family = "sans"

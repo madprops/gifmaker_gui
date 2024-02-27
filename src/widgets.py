@@ -80,17 +80,16 @@ def set_entry(widget, value):
     if not value:
         return
 
-    if not isinstance(value, str):
-        return
+    if isinstance(value, list):
+        value = ",".join(map(str, value))
+    else:
+        value = str(value)
 
     widget.delete(0, "end")
     widget.insert(0, value)
 
 
 def set_checkbox(widget, value):
-    if not isinstance(value, bool):
-        return
-
     if value:
         widget.select()
     else:
@@ -98,7 +97,4 @@ def set_checkbox(widget, value):
 
 
 def set_select(widget, value):
-    if not isinstance(value, str):
-        return
-
     widget.set(value)
