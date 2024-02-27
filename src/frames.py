@@ -91,6 +91,7 @@ def frame_seeds() -> None:
     w.add("frameseed", d)
     w.add("wordseed", d)
     w.add("filterseed", d)
+    w.add("colorseed", d)
 
 
 def frame_opts() -> None:

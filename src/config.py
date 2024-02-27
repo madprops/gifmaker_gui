@@ -62,6 +62,7 @@ args: Dict[str, Any] = {
     "seed": {"label": "Seed", "type": "text"},
     "frameseed": {"label": "Frame Seed", "type": "text"},
     "filterseed": {"label": "Filter Seed", "type": "text"},
+    "colorseed": {"label": "Color Seed", "type": "text"},
     "wordseed": {"label": "Word Seed", "type": "text"},
     "framelist": {"label": "Frame List", "type": "text"},
     "frameopts": {"label": "Frame Opts", "type": "text", "width": bigger_width},
