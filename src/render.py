@@ -68,12 +68,16 @@ class ResultDialog(simpledialog.Dialog):
         pass
 
     def open_file_click(self) -> None:
+        self.ok()
+
         try:
             subprocess.run(["xdg-open", self.path], check=True)
         except subprocess.CalledProcessError as e:
             utils.msg(f"Error opening file: {e}")
 
     def open_dir_click(self) -> None:
+        self.ok()
+
         try:
             subprocess.run(["xdg-open", Path(self.path).parent], check=True)
         except subprocess.CalledProcessError as e:
