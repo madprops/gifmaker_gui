@@ -77,7 +77,8 @@ G = {
     "height": {"name": "height", "type": "text"},
     "separator": {"name": "separator", "type": "text"},
     "order": {"name": "order", "type": "select"},
-    "random_list": {"name": "randomlist", "type": "text"},
+    "randomlist": {"name": "randomlist", "type": "text"},
+    "filteropts": {"name": "filteropts", "type": "text"},
 }
 
 

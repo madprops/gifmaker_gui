@@ -12,7 +12,7 @@ def frame_input():
     w.make_label(frame, col, "Input")
     col += 1
 
-    G["input_path"]["widget"] = w.make_text(frame, col, placeholder="Path to a file", sticky="ew")
+    G["input_path"]["widget"] = w.make_text(frame, col, placeholder="Path to a file (gif, webm, mp4, jpg, png)", sticky="ew")
     col += 1
 
     w.make_button(frame, col, "Browse", lambda: w.browse(G["input_path"]["widget"]))
@@ -121,6 +121,18 @@ def frame_position():
     G["right"]["widget"] = w.make_text(frame, col)
     col += 1
 
+    w.make_label(frame, col, "Width")
+    col += 1
+
+    G["width"]["widget"] = w.make_text(frame, col)
+    col += 1
+
+    w.make_label(frame, col, "Height")
+    col += 1
+
+    G["height"]["widget"] = w.make_text(frame, col)
+    col += 1
+
 
 def frame_frames():
     frame = w.make_frame()
@@ -144,16 +156,10 @@ def frame_frames():
     G["filter_name"]["widget"] = w.make_select(frame, col)
     col += 1
 
-    w.make_label(frame, col, "Width")
+    w.make_label(frame, col, "Filter Opts")
     col += 1
 
-    G["width"]["widget"] = w.make_text(frame, col)
-    col += 1
-
-    w.make_label(frame, col, "Height")
-    col += 1
-
-    G["height"]["widget"] = w.make_text(frame, col)
+    G["filteropts"]["widget"] = w.make_text(frame, col, width=config.bigger_width)
     col += 1
 
 
@@ -165,7 +171,7 @@ def frame_output():
     w.make_label(frame, col, "Output")
     col += 1
 
-    G["output_path"]["widget"] = w.make_text(frame, col, sticky="ew", placeholder="Where to save the file")
+    G["output_path"]["widget"] = w.make_text(frame, col, sticky="ew", placeholder="You can leave it empty to save in the default directory")
     col += 1
 
     w.make_label(frame, col, "Format")
@@ -297,7 +303,7 @@ def frame_opts():
     w.make_label(frame, col, "Frame Opts")
     col += 1
 
-    G["frameopts"]["widget"] = w.make_text(frame, col)
+    G["frameopts"]["widget"] = w.make_text(frame, col, width=config.bigger_width)
     col += 1
 
     w.make_label(frame, col, "Repeat Random")
@@ -338,7 +344,7 @@ def frame_someboxes():
     w.make_label(frame, col, "Random List")
     col += 1
 
-    G["random_list"]["widget"] = w.make_text(frame, col, width=config.path_width)
+    G["randomlist"]["widget"] = w.make_text(frame, col, width=config.path_width)
     col += 1
 
 
