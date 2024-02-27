@@ -1,3 +1,4 @@
+import config
 from config import G
 import widgets as w
 import render
@@ -41,13 +42,13 @@ def frame_font():
     w.make_label(frame, 0, col, "Font Color")
     col += 1
 
-    G["font_color"]["widget"] = w.make_entry(frame, 0, col)
+    G["font_color"]["widget"] = w.make_entry(frame, 0, col, width=config.bigger_width)
     col += 1
 
-    w.make_label(frame, 0, col, "Background")
+    w.make_label(frame, 0, col, "BG Color")
     col += 1
 
-    G["bgcolor"]["widget"] = w.make_entry(frame, 0, col)
+    G["bgcolor"]["widget"] = w.make_entry(frame, 0, col, width=config.bigger_width)
     col += 1
 
 
@@ -201,11 +202,6 @@ def frame_checkboxes_1():
 
     G["horizontal"]["widget"] = w.make_checkbox(frame, 0, col)
     col += 1
-
-
-def frame_checkboxes_2():
-    frame = w.make_frame()
-    col = 0
 
 
 def frame_outline():

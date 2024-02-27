@@ -26,8 +26,9 @@ def make_label(frame, row, col, text, sticky="w"):
     return label
 
 
-def make_entry(frame, row, col, value="", width=config.entry_width, sticky="w", placeholder=""):
-    entry = tk.CTkEntry(frame, placeholder_text=placeholder, font=config.font, width=width)
+def make_entry(frame, row, col, value="", width=None, sticky="w", placeholder=""):
+    w = width if width else config.entry_width
+    entry = tk.CTkEntry(frame, placeholder_text=placeholder, font=config.font, width=w)
     entry.grid(row=row, column=col, padx=config.padx, pady=config.pady, sticky=sticky)
 
     if value:

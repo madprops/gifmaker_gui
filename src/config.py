@@ -17,8 +17,9 @@ pady = 10
 
 font_size = 16
 font_family = "sans"
-entry_width = 90
+entry_width = 60
 select_width = 110
+bigger_width = 110
 
 font = None
 frame_number = 0

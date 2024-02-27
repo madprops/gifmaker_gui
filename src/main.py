@@ -13,7 +13,6 @@ frames.frame_decorations()
 frames.frame_frames()
 frames.frame_output()
 frames.frame_checkboxes_1()
-frames.frame_checkboxes_2()
 frames.frame_outline()
 
 widgets.fill_widgets()
