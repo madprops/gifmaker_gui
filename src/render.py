@@ -51,7 +51,7 @@ class ResultDialog(simpledialog.Dialog):
         super().__init__(parent)
 
     def body(self, parent):
-        tk.Label(parent, text=f"File was saved at: {self.path}").pack()
+        tk.Label(parent, text=f"File saved at: {self.path}").pack()
 
         self.button1 = tk.Button(parent, text="Open File", command=self.open_file_click)
         self.button1.pack(side=tk.LEFT, padx=5)
