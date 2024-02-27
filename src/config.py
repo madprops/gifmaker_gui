@@ -9,7 +9,7 @@ import json
 import subprocess
 from typing import Dict, Any
 
-app: ctk.CTk = None
+app: ctk.CTkFrame = None
 width = 820
 height = 720
 
