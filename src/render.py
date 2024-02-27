@@ -20,7 +20,9 @@ def render():
         if reverse:
             value = not value
 
-        if (value is not None) and (value != item["default"]):
+        default = str(item["default"])
+
+        if (value is not None) and (str(value) != default):
             if isinstance(value, str):
                 if not value:
                     return
