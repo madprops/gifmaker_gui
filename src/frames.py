@@ -95,7 +95,7 @@ def frame_words():
     w.make_label(frame, col, "Words")
     col += 1
 
-    G["words"]["widget"] = w.make_text(frame, col, placeholder="Words to put on the frames", sticky="ew")
+    G["words"]["widget"] = w.make_text(frame, col, placeholder="Words to put on the frames. Separate lines with semicolons. Keywords include [random]", sticky="ew")
     col += 1
 
 
@@ -396,7 +396,7 @@ def frame_stuff():
     w.make_label(frame, col, "Loop")
     col += 1
 
-    G["loop"]["widget"] = w.make_checkbox(frame, col)
+    G["loop"]["widget"] = w.make_text(frame, col)
     col += 1
 
     w.make_label(frame, col, "Separator")

@@ -70,7 +70,7 @@ G = {
     "script": {"name": "script", "type": "text"},
     "random_file": {"name": "randomfile", "type": "text"},
     "word_file": {"name": "wordfile", "type": "text"},
-    "loop": {"name": "loop", "type": "checkbox"},
+    "loop": {"name": "loop", "type": "text"},
     "remake": {"name": "remake", "type": "checkbox"},
     "align": {"name": "align", "type": "select"},
     "width": {"name": "width", "type": "text"},
