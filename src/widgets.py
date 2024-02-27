@@ -64,16 +64,16 @@ def fill_widgets():
         if G[key].get("reverse"):
             value = not value
 
-        set_widget(G[key]["widget"], value, G[key]["type"])
+        set_widget(G[key]["widget"], value, G[key]["type"], G[key].get("choices"))
 
 
-def set_widget(widget, value, wtype):
+def set_widget(widget, value, wtype, extra):
     if wtype == "entry":
         set_entry(widget, value)
     elif wtype == "checkbox":
         set_checkbox(widget, value)
     elif wtype == "select":
-        set_select(widget, value)
+        set_select(widget, value, extra)
 
 
 def set_entry(widget, value):
@@ -96,5 +96,8 @@ def set_checkbox(widget, value):
         widget.deselect()
 
 
-def set_select(widget, value):
+def set_select(widget, value, extra):
+    if extra:
+        widget.configure(values=extra)
+
     widget.set(value)

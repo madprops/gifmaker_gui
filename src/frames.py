@@ -140,9 +140,7 @@ def frame_frames():
     w.make_label(frame, 0, col, "Filter")
     col += 1
 
-    filters = ["hue1", "hue2", "hue3", "hue4", "hue5", "hue6", "hue7", "hue8", "anyhue", "anyhue2",
-               "gray", "grey", "blur", "invert", "random", "random2", "none"]
-    G["filter_name"]["widget"] = w.make_select(frame, 0, col, filters)
+    G["filter_name"]["widget"] = w.make_select(frame, 0, col, ["empty"])
     col += 1
 
 
@@ -160,8 +158,7 @@ def frame_output():
     w.make_label(frame, 0, col, "Format")
     col += 1
 
-    formats = ["gif", "webm", "mp4", "jpg", "png"]
-    G["format_name"]["widget"] = w.make_select(frame, 0, col, formats)
+    G["format_name"]["widget"] = w.make_select(frame, 0, col, ["empty"])
     col += 1
 
 
@@ -187,11 +184,6 @@ def frame_checkboxes_1():
     G["descender"]["widget"] = w.make_checkbox(frame, 0, col)
     col += 1
 
-
-def frame_checkboxes_2():
-    frame = w.make_frame()
-    col = 0
-
     w.make_label(frame, 0, col, "Deep Fry")
     col += 1
 
@@ -209,6 +201,11 @@ def frame_checkboxes_2():
 
     G["horizontal"]["widget"] = w.make_checkbox(frame, 0, col)
     col += 1
+
+
+def frame_checkboxes_2():
+    frame = w.make_frame()
+    col = 0
 
 
 def frame_outline():

@@ -12,8 +12,8 @@ app = None
 width = 820
 height = 600
 
-padx = 5
-pady = 5
+padx = 6
+pady = 10
 
 font_size = 16
 font_family = "sans"
@@ -75,7 +75,12 @@ def get_defaults():
         defaults = json.loads(result.stdout)
 
         for key in G:
-            G[key]["default"] = defaults[G[key]["name"]]
+            name = G[key]["name"]
+            G[key]["default"] = defaults[name]
+            choices_key = f"_choices_{name}"
+
+            if choices_key in defaults:
+                G[key]["choices"] = defaults[choices_key]
     else:
         utils.msg("Error", result.stderr)
         return
