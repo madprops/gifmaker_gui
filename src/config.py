@@ -99,14 +99,16 @@ def prepare() -> None:
 
 
 def get_defaults() -> None:
-    command = ["gifmaker", "--mode", "defaults"]
+    command = ["gifmaker", "--arguments"]
     result = subprocess.run(command, capture_output=True, text=True)
 
     if result.returncode == 0:
-        defaults = json.loads(result.stdout)
+        arguments = json.loads(result.stdout)
 
         for key in args:
-            args[key]["default"] = defaults[key]
+            args[key]["default"] = arguments[key]["value"]
+            args[key]["choices"] = arguments[key].get("choices")
+            args[key]["help"] = arguments[key]["help"]
     else:
         utils.msg(result.stderr)
         return
