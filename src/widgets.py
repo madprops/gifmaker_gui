@@ -11,10 +11,11 @@ from tkinter import filedialog
 from typing import Any, Union, List, Tuple, Callable
 
 
-def browse(text_widget: ctk.CTkEntry) -> None:
+def browse(arg: str) -> None:
+    widget = args[arg]["widget"]
     file_path = filedialog.askopenfilename()
-    text_widget.delete(0, ctk.END)
-    text_widget.insert(0, file_path)
+    widget.delete(0, ctk.END)
+    widget.insert(0, file_path)
 
 
 def make_frame() -> ctk.CTkFrame:

@@ -1,5 +1,6 @@
 # Modules
 import config
+import widgets
 
 # Libraries
 import tkinter as tk
@@ -32,20 +33,20 @@ class ActionDialog(ctk.CTkToplevel):
         self.buttons = ctk.CTkFrame(self, fg_color="transparent")
         self.buttons.pack(padx=20, pady=(10, 20))
 
-        self.button1 = ctk.CTkButton(self.buttons, text="Browse Input", command=self.open_file_click)
+        self.button1 = ctk.CTkButton(self.buttons, text="Browse Input", command=self.browse_click)
         self.button1.pack(side=tk.LEFT, padx=5)
 
-        self.button2 = ctk.CTkButton(self.buttons, text="Load State", command=self.open_dir_click)
+        self.button2 = ctk.CTkButton(self.buttons, text="Load State", command=self.load_click)
         self.button2.pack(side=tk.LEFT, padx=5)
 
-        self.button3 = ctk.CTkButton(self.buttons, text="Save State", command=self.dismiss_click)
+        self.button3 = ctk.CTkButton(self.buttons, text="Save State", command=self.save_click)
         self.button3.pack(side=tk.LEFT, padx=5)
 
-    def open_file_click(self) -> None:
-        self.ok()
+    def browse_click(self) -> None:
+        widgets.browse("input")
 
-    def open_dir_click(self) -> None:
-        self.ok()
+    def load_click(self) -> None:
+        print("Load State")
 
-    def dismiss_click(self) -> None:
-        self.ok()
+    def save_click(self) -> None:
+        print("Save State")
