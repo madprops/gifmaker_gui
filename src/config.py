@@ -11,7 +11,7 @@ from typing import Dict, Any
 from pathlib import Path
 
 app: ctk.CTkFrame = None
-width = 1000
+width = 960
 height = 730
 
 padx = 6
