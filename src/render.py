@@ -41,47 +41,39 @@ def render() -> None:
     result = subprocess.run(command, capture_output=True, text=True)
 
     if result.returncode == 0:
-        ResultDialog(config.app, path=result.stdout)
+        ResultDialog(config.app, path=result.stdout.strip())
     else:
         messagebox.showerror("Error", result.stderr)
         utils.msg(result.stderr)
 
 
-class ResultDialog(simpledialog.Dialog):
-    def __init__(self, parent: ctk.CTkFrame, path: str):
-        self.path = path
-        super().__init__(parent)
+class ResultDialog(ctk.CTkToplevel):
+    def __init__(self, *args, path: str, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    def body(self, parent: ctk.CTkFrame) -> None:
-        tk.Label(parent, text=f"File saved at: {self.path}").pack()
+        self.configure(fg_color="#252933")
+        self.label = ctk.CTkLabel(self, text=path, font=config.font)
+        self.label.pack(pady=(10, 0))
 
-        self.button1 = ctk.CTkButton(parent, text="Open File", command=self.open_file_click)
+        self.buttons = ctk.CTkFrame(self, fg_color="transparent")
+        self.buttons.pack(padx=20, pady=(10, 20))
+
+        self.button1 = ctk.CTkButton(self.buttons, text="Open File", command=self.open_file_click)
         self.button1.pack(side=tk.LEFT, padx=5)
 
-        self.button1 = ctk.CTkButton(parent, text="Open Directory", command=self.open_dir_click)
+        self.button1 = ctk.CTkButton(self.buttons, text="Open Directory", command=self.open_dir_click)
         self.button1.pack(side=tk.LEFT, padx=5)
 
-        self.button2 = ctk.CTkButton(parent, text="Dismiss", command=self.dismiss_click)
+        self.button2 = ctk.CTkButton(self.buttons, text="Dismiss", command=self.dismiss_click)
         self.button2.pack(side=tk.LEFT, padx=5)
-
-    def buttonbox(self) -> None:
-        pass
 
     def open_file_click(self) -> None:
         self.ok()
-
-        try:
-            subprocess.run(["xdg-open", self.path], check=True)
-        except subprocess.CalledProcessError as e:
-            utils.msg(f"Error opening file: {e}")
+        utils.open_path(self.path)
 
     def open_dir_click(self) -> None:
         self.ok()
-
-        try:
-            subprocess.run(["xdg-open", Path(self.path).parent], check=True)
-        except subprocess.CalledProcessError as e:
-            utils.msg(f"Error opening file: {e}")
+        utils.open_path(Path(self.path).parent)
 
     def dismiss_click(self) -> None:
         self.ok()

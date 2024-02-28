@@ -1,6 +1,8 @@
 # Standard
 import sys
 from typing import Any
+import subprocess
+from pathlib import Path
 
 
 def msg(message: str) -> None:
@@ -33,3 +35,10 @@ def show_parents(obj: Any) -> None:
     parent_classes = child_class.__bases__
     parents = ", ".join([parent.__name__ for parent in parent_classes])
     msg("Parent classes of " + child_class.__name__ + " are: " + parents)
+
+
+def open_path(path):
+    try:
+        subprocess.run(["xdg-open", Path(path).parent], check=True)
+    except subprocess.CalledProcessError as e:
+        msg(f"Error opening: {e}")
