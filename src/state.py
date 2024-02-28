@@ -52,7 +52,7 @@ def apply_state(state: dict) -> None:
     for key in state:
         config.args[key]["value"] = state[key]
 
-    widgets.fill_widgets()
+    widgets.fill_widgets("value")
 
 
 def get_state() -> str:
@@ -68,22 +68,13 @@ def get_state() -> str:
 class ActionDialog(ctk.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        widgets.prepare_dialog(self, "Choose an Action")
 
-        self.configure(fg_color="#252933")
-        self.label = ctk.CTkLabel(self, text="Choose an Action", font=config.font)
-        self.label.pack(pady=(10, 0))
-
-        self.buttons = ctk.CTkFrame(self, fg_color="transparent")
-        self.buttons.pack(padx=20, pady=(10, 20))
-
-        self.button1 = ctk.CTkButton(self.buttons, text="Browse Input", command=self.browse_click)
-        self.button1.pack(side=tk.LEFT, padx=5)
-
-        self.button2 = ctk.CTkButton(self.buttons, text="Load State", command=self.load_click)
-        self.button2.pack(side=tk.LEFT, padx=5)
-
-        self.button3 = ctk.CTkButton(self.buttons, text="Save State", command=self.save_click)
-        self.button3.pack(side=tk.LEFT, padx=5)
+        widgets.make_dialog_buttons(self, [
+            {"text": "Browse Input", "command": self.browse_click},
+            {"text": "Load State", "command": self.load_click},
+            {"text": "Save State", "command": self.save_click},
+        ])
 
     def browse_click(self) -> None:
         browse("input")

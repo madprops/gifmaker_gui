@@ -4,6 +4,7 @@ from config import args
 from framedata import FrameData
 
 # Libraries
+import tkinter as tk
 import customtkinter as ctk  # type: ignore
 
 # Standard
@@ -64,9 +65,9 @@ def make_checkbox(d: FrameData, sticky: str = "w") -> ctk.CTkCheckBox:
     return widget
 
 
-def fill_widgets() -> None:
+def fill_widgets(mode: str = "default") -> None:
     for key in args:
-        value = args[key]["value"]
+        value = args[key][mode]
         set_widget(args[key]["widget"], value, args[key]["type"], args[key].get("choices"))
 
 
@@ -120,3 +121,17 @@ def add(name: str, d: FrameData) -> None:
         item["widget"] = make_checkbox(d)
     elif item["type"] == "select":
         item["widget"] = make_select(d)
+
+def prepare_dialog(parent, text):
+    parent.configure(fg_color=config.dialog_color)
+    parent.label = ctk.CTkLabel(parent, text=text, font=config.font)
+    parent.label.pack(pady=(10, 0))
+
+def make_dialog_buttons(parent, items):
+    buttons = ctk.CTkFrame(parent, fg_color="transparent")
+    buttons.pack(padx=20, pady=(10, 20))
+    bpack = {"side": tk.LEFT, "padx": 5}
+
+    for item in items:
+        ctk.CTkButton(buttons, text=item["text"], \
+            command=item["command"], font=config.font).pack(**bpack)

@@ -25,6 +25,7 @@ text_width = 60
 select_width = 110
 bigger_width = 110
 path_width = 150
+dialog_color = "#252933"
 
 font = None
 frame_number = 0
@@ -109,7 +110,7 @@ def get_defaults() -> None:
         arguments = json.loads(result.stdout)
 
         for key in args:
-            args[key]["value"] = arguments[key]["value"]
+            args[key]["default"] = arguments[key]["value"]
             args[key]["choices"] = arguments[key].get("choices")
             args[key]["help"] = arguments[key]["help"]
     else:
