@@ -42,7 +42,15 @@ def load_state():
         initialdir=Path(config.root, "states"),
     )
 
-    with open(file_path, "r") as file:
+    if not file_path:
+        return
+
+    path = Path(file_path)
+
+    if not path.exists() or not path.is_file():
+        return
+
+    with open(path, "r") as file:
         content = file.read()
         state = json.loads(content)
         apply_state(state)
