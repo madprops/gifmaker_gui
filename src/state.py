@@ -5,21 +5,64 @@ import widgets
 # Libraries
 import tkinter as tk
 import customtkinter as ctk  # type: ignore
-from tkinter import filedialog, simpledialog
+from tkinter import filedialog
 
-state = "test"
+# Standard
+import json
+from pathlib import Path
 
 
 def action_button() -> None:
-    dialog = ActionDialog(config.app)
+    ActionDialog(config.app)
+
+
+def browse(arg: str) -> None:
+    widget = config.args[arg]["widget"]
+    file_path = filedialog.askopenfilename()
+    widget.delete(0, ctk.END)
+    widget.insert(0, file_path)
 
 
 def save_state():
-    file_path = filedialog.asksaveasfilename(defaultextension=".toml", filetypes=[("TOML Files", "*.toml")])
+    file_path = filedialog.asksaveasfilename(
+        initialdir=Path(config.root, "states"),
+        defaultextension=".json",
+        filetypes=[("State Files", "*.json")],
+    )
 
     if file_path:
+        state = get_state()
+
         with open(file_path, "w") as file:
             file.write(state)
+
+
+def load_state():
+    file_path = filedialog.askopenfilename(
+        initialdir=Path(config.root, "states"),
+    )
+
+    with open(file_path, "r") as file:
+        content = file.read()
+        state = json.loads(content)
+        apply_state(state)
+
+
+def apply_state(state: dict) -> None:
+    for key in state:
+        config.args[key]["value"] = state[key]
+
+    widgets.fill_widgets()
+
+
+def get_state() -> str:
+    state = {}
+
+    for key in config.args:
+        value = config.args[key]["widget"].get()
+        state[key] = value
+
+    return json.dumps(state)
 
 
 class ActionDialog(ctk.CTkToplevel):
@@ -43,10 +86,10 @@ class ActionDialog(ctk.CTkToplevel):
         self.button3.pack(side=tk.LEFT, padx=5)
 
     def browse_click(self) -> None:
-        widgets.browse("input")
+        browse("input")
 
     def load_click(self) -> None:
-        print("Load State")
+        load_state()
 
     def save_click(self) -> None:
-        print("Save State")
+        save_state()

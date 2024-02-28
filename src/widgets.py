@@ -5,17 +5,9 @@ from framedata import FrameData
 
 # Libraries
 import customtkinter as ctk  # type: ignore
-from tkinter import filedialog
 
 # Standard
 from typing import Any, Union, List, Tuple, Callable
-
-
-def browse(arg: str) -> None:
-    widget = args[arg]["widget"]
-    file_path = filedialog.askopenfilename()
-    widget.delete(0, ctk.END)
-    widget.insert(0, file_path)
 
 
 def make_frame() -> ctk.CTkFrame:
@@ -74,7 +66,7 @@ def make_checkbox(d: FrameData, sticky: str = "w") -> ctk.CTkCheckBox:
 
 def fill_widgets() -> None:
     for key in args:
-        value = args[key]["default"]
+        value = args[key]["value"]
         set_widget(args[key]["widget"], value, args[key]["type"], args[key].get("choices"))
 
 

@@ -6,7 +6,7 @@ import utils
 # Libraries
 import tkinter as tk
 import customtkinter as ctk  # type: ignore
-from tkinter import messagebox, simpledialog
+from tkinter import messagebox
 
 # Standard
 import subprocess

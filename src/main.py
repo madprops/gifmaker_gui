@@ -33,7 +33,7 @@ def main() -> None:
     start_time = get_time()
     last_time = start_time
 
-    config.prepare()
+    config.prepare(__file__)
     check_time("Prepare Config")
 
     frames.frame_input()

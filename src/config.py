@@ -8,6 +8,7 @@ import customtkinter as ctk  # type: ignore
 import json
 import subprocess
 from typing import Dict, Any
+from pathlib import Path
 
 app: ctk.CTkFrame = None
 width = 1000
@@ -27,6 +28,7 @@ path_width = 150
 
 font = None
 frame_number = 0
+root = None
 
 args: Dict[str, Any] = {
     "input": {"label": "Input ", "type": "text", "sticky": "ew", "placeholder": "Path to a file (gif, webm, mp4, jpg, png)"},
@@ -87,8 +89,9 @@ args: Dict[str, Any] = {
 }
 
 
-def prepare() -> None:
-    global app, font
+def prepare(main_file) -> None:
+    global app, font, root
+    root = Path(main_file).parent.parent
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("green")
     app = ctk.CTk()
@@ -106,7 +109,7 @@ def get_defaults() -> None:
         arguments = json.loads(result.stdout)
 
         for key in args:
-            args[key]["default"] = arguments[key]["value"]
+            args[key]["value"] = arguments[key]["value"]
             args[key]["choices"] = arguments[key].get("choices")
             args[key]["help"] = arguments[key]["help"]
     else:
