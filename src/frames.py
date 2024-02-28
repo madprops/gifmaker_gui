@@ -39,6 +39,7 @@ def frame_words() -> None:
     d = get_d()
     d.frame.grid_columnconfigure(1, weight=1)
     w.add("words", d)
+    w.add("separator", d)
 
 
 def frame_position() -> None:
@@ -122,5 +123,4 @@ def frame_stuff() -> None:
     w.add("align", d)
     w.add("remake", d)
     w.add("loop", d)
-    w.add("separator", d)
     w.add("order", d)
