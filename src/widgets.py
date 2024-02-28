@@ -13,7 +13,7 @@ from typing import Any, Union, List, Tuple, Callable, Dict
 
 def make_frame() -> ctk.CTkFrame:
     frame = ctk.CTkFrame(config.app, fg_color="transparent")
-    frame.grid(row=config.frame_number, column=0, padx=config.frame_padx, \
+    frame.grid(row=config.frame_number, column=0, padx=config.frame_padx,
                pady=config.frame_pady, sticky="ew")
     config.frame_number += 1
     return frame
@@ -43,7 +43,7 @@ def make_button(d: FrameData, text: str, command: Callable[..., Any], color: str
                 text_color: Union[str, None] = None, hover_color: Union[Tuple[str, str], None] = None,
                 sticky: str = "w") -> ctk.CTkButton:
     widget = ctk.CTkButton(d.frame, text=text, command=command, font=config.font,
-                          fg_color=color, text_color=text_color, hover_color=hover_color, )
+                           fg_color=color, text_color=text_color, hover_color=hover_color, )
 
     widget.grid(row=0, column=d.col, padx=config.padx, pady=config.pady, sticky=sticky)
     d.col += 1
@@ -113,19 +113,19 @@ def add(name: str, d: FrameData) -> None:
 
     if item["type"] == "text":
         item["widget"] = make_text(d,
-                                   sticky=item.get("sticky"),
-                                   placeholder=item.get("placeholder", ""),
-                                   width=item.get("width"),
-                                   )
+                                   sticky=item.get("sticky"), placeholder=item.get("placeholder", ""),
+                                   width=item.get("width"))
     elif item["type"] == "checkbox":
         item["widget"] = make_checkbox(d)
     elif item["type"] == "select":
         item["widget"] = make_select(d)
 
+
 def prepare_dialog(parent: ctk.CTkToplevel, text: str) -> None:
     parent.configure(fg_color=config.dialog_color)
     parent.label = ctk.CTkLabel(parent, text=text, font=config.font)
     parent.label.pack(pady=(10, 0))
+
 
 def make_dialog_buttons(parent: ctk.CTkToplevel, items: List[Dict[str, Any]]) -> None:
     buttons = ctk.CTkFrame(parent, fg_color="transparent")
@@ -133,5 +133,5 @@ def make_dialog_buttons(parent: ctk.CTkToplevel, items: List[Dict[str, Any]]) ->
     bpack = {"side": tk.LEFT, "padx": 5}
 
     for item in items:
-        ctk.CTkButton(buttons, text=item["text"], \
-            command=item["command"], font=config.font).pack(**bpack)
+        ctk.CTkButton(buttons, text=item["text"],
+                      command=item["command"], font=config.font).pack(**bpack)
