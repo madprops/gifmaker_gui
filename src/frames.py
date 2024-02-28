@@ -1,5 +1,4 @@
 # Modules
-from config import args
 import widgets as w
 import render
 from framedata import FrameData
