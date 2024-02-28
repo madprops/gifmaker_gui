@@ -122,12 +122,12 @@ def add(name: str, d: FrameData) -> None:
     elif item["type"] == "select":
         item["widget"] = make_select(d)
 
-def prepare_dialog(parent: ctk.Frame, text: str) -> None:
+def prepare_dialog(parent: ctk.CTkToplevel, text: str) -> None:
     parent.configure(fg_color=config.dialog_color)
     parent.label = ctk.CTkLabel(parent, text=text, font=config.font)
     parent.label.pack(pady=(10, 0))
 
-def make_dialog_buttons(parent: ctk.Frame, items: List[Dict[str, Any]]) -> None:
+def make_dialog_buttons(parent: ctk.CTkToplevel, items: List[Dict[str, Any]]) -> None:
     buttons = ctk.CTkFrame(parent, fg_color="transparent")
     buttons.pack(padx=20, pady=(10, 20))
     bpack = {"side": tk.LEFT, "padx": 5}
