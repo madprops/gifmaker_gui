@@ -58,7 +58,10 @@ def load_state():
 
 def apply_state(state: dict) -> None:
     for key in state:
-        config.args[key]["value"] = state[key]
+        arg = config.args.get(key)
+
+        if arg:
+            arg["value"] = state[key]
 
     widgets.fill_widgets("value")
 
