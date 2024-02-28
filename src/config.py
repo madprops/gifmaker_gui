@@ -33,7 +33,7 @@ root = None
 args: Dict[str, Any] = {
     "input": {"label": "Input ", "type": "text", "sticky": "ew", "placeholder": "Path to a file (gif, webm, mp4, jpg, png)"},
     "output": {"label": "Output", "type": "text", "sticky": "ew", "placeholder": "You can leave it empty to save in the default directory"},
-    "words": {"label": "Words ", "type": "text", "sticky": "ew", "placeholder": "Words to put on the frames. Separate frames with semicolons. Keywords include [random]"},
+    "words": {"label": "Words ", "type": "text", "sticky": "ew", "placeholder": "Words to put on the frames | [random] [number] [repeat]"},
     "font": {"label": "Font", "type": "text"},
     "fontsize": {"label": "Font Size", "type": "text"},
     "fontcolor": {"label": "Font Color", "type": "text", "width": bigger_width},
