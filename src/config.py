@@ -110,6 +110,11 @@ def get_defaults() -> None:
         arguments = json.loads(result.stdout)
 
         for key in args:
+            arg = arguments.get(key)
+
+            if not arg:
+                continue
+
             args[key]["default"] = arguments[key]["value"]
             args[key]["choices"] = arguments[key].get("choices")
             args[key]["help"] = arguments[key]["help"]

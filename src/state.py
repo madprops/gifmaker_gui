@@ -30,11 +30,13 @@ def save_state():
         filetypes=[("State Files", "*.json")],
     )
 
-    if file_path:
-        state = get_state()
+    if not file_path:
+        return
 
-        with open(file_path, "w") as file:
-            file.write(state)
+    state = get_state()
+
+    with open(file_path, "w") as file:
+        file.write(state)
 
 
 def load_state():
