@@ -8,6 +8,7 @@ import customtkinter as ctk  # type: ignore
 # Standard
 from typing import Any
 
+
 class ActionDialog(ctk.CTkToplevel):
     def __init__(self, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
