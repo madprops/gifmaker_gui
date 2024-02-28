@@ -3,17 +3,13 @@ import config
 import widgets
 
 # Libraries
-import tkinter as tk
 import customtkinter as ctk  # type: ignore
 from tkinter import filedialog
 
 # Standard
 import json
 from pathlib import Path
-
-
-def action_button() -> None:
-    ActionDialog(config.app)
+from typing import Any, Dict
 
 
 def browse(arg: str) -> None:
@@ -23,7 +19,9 @@ def browse(arg: str) -> None:
     widget.insert(0, file_path)
 
 
-def save_state():
+def save_state() -> None:
+    assert isinstance(config.root, Path)
+
     file_path = filedialog.asksaveasfilename(
         initialdir=Path(config.root, "states"),
         defaultextension=".json",
@@ -39,7 +37,9 @@ def save_state():
         file.write(state)
 
 
-def load_state():
+def load_state() -> None:
+    assert isinstance(config.root, Path)
+
     file_path = filedialog.askopenfilename(
         initialdir=Path(config.root, "states"),
     )
@@ -58,7 +58,7 @@ def load_state():
         apply_state(state)
 
 
-def apply_state(state: dict) -> None:
+def apply_state(state: Dict[str, Any]) -> None:
     for key in state:
         arg = config.args.get(key)
 
@@ -78,8 +78,8 @@ def get_state() -> str:
     return json.dumps(state)
 
 
-class ActionDialog(ctk.CTkToplevel):
-    def __init__(self, *args, **kwargs):
+class ActionDialog:
+    def __init__(self, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
         widgets.prepare_dialog(self, "Choose an Action")
 
@@ -97,3 +97,7 @@ class ActionDialog(ctk.CTkToplevel):
 
     def save_click(self) -> None:
         save_state()
+
+
+def action_button() -> None:
+    ActionDialog(config.app)

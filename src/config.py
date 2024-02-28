@@ -90,7 +90,7 @@ args: Dict[str, Any] = {
 }
 
 
-def prepare(main_file) -> None:
+def prepare(main_file: str) -> None:
     global app, font, root
     root = Path(main_file).parent.parent
     ctk.set_appearance_mode("dark")

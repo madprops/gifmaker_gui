@@ -37,8 +37,8 @@ def show_parents(obj: Any) -> None:
     msg("Parent classes of " + child_class.__name__ + " are: " + parents)
 
 
-def open_path(path):
+def open_path(path: Path) -> None:
     try:
-        subprocess.run(["xdg-open", Path(path).parent], check=True)
+        subprocess.run(["xdg-open", path.parent], check=True)
     except subprocess.CalledProcessError as e:
         msg(f"Error opening: {e}")

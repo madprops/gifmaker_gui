@@ -5,7 +5,6 @@ import utils
 import widgets
 
 # Libraries
-import tkinter as tk
 import customtkinter as ctk  # type: ignore
 from tkinter import messagebox
 
@@ -48,10 +47,11 @@ def render() -> None:
         utils.msg(result.stderr)
 
 
-class ResultDialog(ctk.CTkToplevel):
-    def __init__(self, *args, path: str, **kwargs):
+class ResultDialog:
+    def __init__(self, *args: Any, path: str, **kwargs: Any):
         super().__init__(*args, **kwargs)
         widgets.prepare_dialog(self, path)
+        self.path = path
 
         widgets.make_dialog_buttons(self, [
             {"text": "Open File", "command": self.open_file_click},
@@ -60,12 +60,10 @@ class ResultDialog(ctk.CTkToplevel):
         ])
 
     def open_file_click(self) -> None:
-        self.ok()
-        utils.open_path(self.path)
+        utils.open_path(Path(self.path))
 
     def open_dir_click(self) -> None:
-        self.ok()
         utils.open_path(Path(self.path).parent)
 
     def dismiss_click(self) -> None:
-        self.ok()
+        pass
