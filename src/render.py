@@ -47,7 +47,7 @@ def render() -> None:
         utils.msg(result.stderr)
 
 
-class ResultDialog:
+class ResultDialog(ctk.CTkToplevel):
     def __init__(self, *args: Any, path: str, **kwargs: Any):
         super().__init__(*args, **kwargs)
         widgets.prepare_dialog(self, path)
@@ -59,11 +59,10 @@ class ResultDialog:
             {"text": "Dismiss", "command": self.dismiss_click},
         ])
 
+        widgets.make_dialog_modal(self)
+
     def open_file_click(self) -> None:
         utils.open_path(Path(self.path))
 
     def open_dir_click(self) -> None:
         utils.open_path(Path(self.path).parent)
-
-    def dismiss_click(self) -> None:
-        pass

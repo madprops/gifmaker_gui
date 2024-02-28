@@ -132,6 +132,15 @@ def make_dialog_buttons(parent: ctk.CTkToplevel, items: List[Dict[str, Any]]) ->
     buttons.pack(padx=20, pady=(10, 20))
     bpack = {"side": tk.LEFT, "padx": 5}
 
+    items.append({"text": "Dismiss", "command": lambda: parent.destroy()})
+
     for item in items:
         ctk.CTkButton(buttons, text=item["text"],
                       command=item["command"], font=config.font).pack(**bpack)
+
+
+def make_dialog_modal(parent: ctk.CTkToplevel) -> None:
+    parent.wait_visibility()
+    parent.grab_set_global()
+    parent.lift()
+    parent.bind("<Escape>", lambda e: parent.destroy())

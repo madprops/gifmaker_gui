@@ -2,7 +2,7 @@
 import widgets as w
 import render
 from framedata import FrameData
-import state
+import action
 
 
 def get_d() -> FrameData:
@@ -13,7 +13,7 @@ def frame_input() -> None:
     d = get_d()
     d.frame.grid_columnconfigure(1, weight=1)
     w.add("input", d)
-    w.make_button(d, "Menu", lambda: state.action_button()),
+    w.make_button(d, "Menu", lambda: action.action_button()),
     w.make_button(d, "Render", lambda: render.render(),
                   color="lightblue", text_color="black", hover_color=("blue", "white"))
 

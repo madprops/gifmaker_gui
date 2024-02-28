@@ -76,28 +76,3 @@ def get_state() -> str:
         state[key] = value
 
     return json.dumps(state)
-
-
-class ActionDialog:
-    def __init__(self, *args: Any, **kwargs: Any):
-        super().__init__(*args, **kwargs)
-        widgets.prepare_dialog(self, "Choose an Action")
-
-        widgets.make_dialog_buttons(self, [
-            {"text": "Browse Input", "command": self.browse_click},
-            {"text": "Load State", "command": self.load_click},
-            {"text": "Save State", "command": self.save_click},
-        ])
-
-    def browse_click(self) -> None:
-        browse("input")
-
-    def load_click(self) -> None:
-        load_state()
-
-    def save_click(self) -> None:
-        save_state()
-
-
-def action_button() -> None:
-    ActionDialog(config.app)
