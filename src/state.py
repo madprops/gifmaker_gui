@@ -3,20 +3,12 @@ import config
 import widgets
 
 # Libraries
-import customtkinter as ctk  # type: ignore
 from tkinter import filedialog
 
 # Standard
 import json
 from pathlib import Path
 from typing import Any, Dict
-
-
-def browse(arg: str) -> None:
-    widget = config.args[arg]["widget"]
-    file_path = filedialog.askopenfilename()
-    widget.delete(0, ctk.END)
-    widget.insert(0, file_path)
 
 
 def save_state() -> None:

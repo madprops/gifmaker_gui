@@ -24,7 +24,7 @@ class ActionDialog(ctk.CTkToplevel):
 
     def browse_click(self) -> None:
         self.destroy()
-        state.browse("input")
+        widgets.browse("input")
 
     def load_click(self) -> None:
         self.destroy()

@@ -6,6 +6,7 @@ from framedata import FrameData
 # Libraries
 import tkinter as tk
 import customtkinter as ctk  # type: ignore
+from tkinter import filedialog
 
 # Standard
 from typing import Any, Union, List, Tuple, Callable, Dict
@@ -82,7 +83,7 @@ def set_widget(widget: ctk.CTkBaseClass, value: Any, wtype: str, extra: Any) -> 
 
 def set_text(widget: ctk.CTkEntry, value: Any) -> None:
     if not value:
-        return
+        value = ""
 
     if isinstance(value, list):
         value = ",".join(map(str, value))
@@ -144,3 +145,10 @@ def make_dialog_modal(parent: ctk.CTkToplevel) -> None:
     parent.grab_set_global()
     parent.lift()
     parent.bind("<Escape>", lambda e: parent.destroy())
+
+
+def browse(arg: str) -> None:
+    widget = config.args[arg]["widget"]
+    file_path = filedialog.askopenfilename()
+    widget.delete(0, ctk.END)
+    widget.insert(0, file_path)
