@@ -47,7 +47,7 @@ def render() -> None:
         utils.msg(result.stderr)
 
 
-class ResultDialog(ctk.CTkToplevel):
+class ResultDialog(ctk.CTkToplevel): #type: ignore
     def __init__(self, *args: Any, path: str, **kwargs: Any):
         super().__init__(*args, **kwargs)
         widgets.prepare_dialog(self, path)

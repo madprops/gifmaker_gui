@@ -9,7 +9,7 @@ import customtkinter as ctk  # type: ignore
 from typing import Any
 
 
-class ActionDialog(ctk.CTkToplevel):
+class ActionDialog(ctk.CTkToplevel): #type: ignore
     def __init__(self, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
         widgets.prepare_dialog(self, "Choose an Action")
